@@ -5,12 +5,13 @@ Open `index.html` in a browser, or serve the folder with any static host.
 
 ## Sections
 
-1. **Header**: wordmark plus a floating dock (Studio, Cuts, People, Book) with an active section pill. On small screens it collapses into an accessible dropdown menu (Esc and outside click close it).
-2. **Hero**: headline, supporting line and a cinematic media frame with a sculpted notch holding the "Book a chair" action.
-3. **Cut showcase**: one continuous petrol section. Tabs (Taper, Texture, Classic) crossfade the photo and update name, description, duration and price. Arrow keys, Home/End, the arrow buttons and horizontal swipes all work.
-4. **Before and after**: draggable comparison (mouse, touch, keyboard via the underlying range input).
-5. **People**: panoramic team photo with text rows; "View work" opens a modal portfolio with a "Book with …" action.
-6. **Booking**: service, add on, barber, date (past dates blocked), time slots, details, live total and a confirmation with an `.ics` calendar download.
+1. **Lens navigation**: a compact floating pill on the right with a scroll progress ring, the current section number and its name (which slides as you scroll). Hover or keyboard focus expands it into Studio, Cuts, People with a sliding active pill; Book is always visible. On small screens the ring opens a full screen menu sheet with image previews (Esc closes it).
+2. **Hero**: masked headline reveal, supporting line, sculpted media frame with a live Lagos clock and open status, and a carved notch holding "Book a chair". A slow ticker of services runs underneath.
+3. **Cut showcase**: one continuous petrol section. A glass spec card (notched corner) sits over a photo that dissolves into the background, with a giant outlined numeral behind. The Taper, Texture, Classic tabs sit on a scale with a sliding thumb and autoplay progress (pause button, pauses on hover and focus, off under reduced motion). Arrow keys, Home/End, arrow buttons and swipes all work.
+4. **Before and after**: draggable divider (mouse, touch, keyboard) that reports the minute of the appointment as you drag.
+5. **Ritual**: five steps in arch framed panels. On desktop, vertical scrolling drives the track sideways; on phones and with reduced motion it becomes a native swipe rail.
+6. **People**: panoramic photo and text rows. Hovering a row floats a work preview beside the cursor; "View work" opens a side drawer portfolio with stats and a "Book with …" action.
+7. **Booking**: step tracker, ticket stub service cards, arch barber cards, a 14 day strip (plus a date picker for later dates), time slots grouped by morning, afternoon and evening, and a receipt style summary with a live total. Confirming stamps the ticket and offers an `.ics` calendar file.
 
 ## Configuration
 
