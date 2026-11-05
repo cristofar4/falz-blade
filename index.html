@@ -3,452 +3,351 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Falz Blade — Lagos Barber Studio</title>
-  <meta name="description" content="Falz Blade — a Lagos barber studio. Build your fade, pick your barber, take the chair." />
-  <meta name="theme-color" content="#0d0c0a" />
+  <title>FORM &amp; FADE · Modern Barber Studio, Lagos</title>
+  <meta name="description" content="FORM &amp; FADE is a modern barber studio in Victoria Island, Lagos. Personal cuts, precise craft, and a space to make time for yourself." />
+  <meta name="theme-color" content="#E5F1EC" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="assets/img/hero.jpg" />
   <link rel="stylesheet" href="styles.css" />
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <!-- ===== Intro: the razor opens the page ===== -->
-  <div class="intro" aria-hidden="true">
-    <div class="intro__half intro__half--top"></div>
-    <div class="intro__half intro__half--bottom"></div>
-    <div class="intro__line"></div>
-    <div class="intro__count">#<span>0</span></div>
-  </div>
-
-  <!-- custom cursor -->
-  <div class="cursor" aria-hidden="true"><span></span></div>
-
-  <!-- ===== NAV 1: brand + razor toggle ===== -->
-  <header class="topbar">
-    <a href="#top" class="brand" aria-label="Falz Blade home">
-      <span class="brand__mark">FB</span>
-      <span class="brand__word">Falz<i>/</i>Blade</span>
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <a href="#studio" class="wordmark" aria-label="FORM and FADE, back to top">
+      <span>Form</span><span><i>&amp;</i> Fade</span>
     </a>
 
-    <div class="status" id="chairStatus" aria-live="polite">
-      <span class="status__dot"></span>
-      <span class="status__text">Checking the chairs…</span>
-    </div>
-
-    <button class="razor" id="razorBtn" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
-      <span class="razor__label">Menu</span>
-      <svg class="razor__svg" viewBox="0 0 120 40" aria-hidden="true">
-        <!-- handle -->
-        <g class="razor__handle">
-          <rect x="44" y="15" width="72" height="11" rx="5.5" />
-          <circle cx="110" cy="20.5" r="1.6" class="razor__rivet" />
-        </g>
-        <!-- blade pivots on the pin at (50,20.5) -->
-        <g class="razor__blade">
-          <path d="M50 14 L10 14 Q4 14 4 20.5 Q4 27 10 27 L50 27 Z" />
-          <line x1="8" y1="26" x2="50" y2="26" class="razor__edge" />
-        </g>
-        <circle cx="50" cy="20.5" r="2.4" class="razor__pin" />
-      </svg>
-    </button>
+    <nav class="dock" id="dock" aria-label="Primary">
+      <button class="dock__toggle" id="menuToggle" aria-expanded="false" aria-controls="dockLinks">
+        <span class="dock__burger" aria-hidden="true"><i></i><i></i></span>
+        <span class="dock__toggle-label">Menu</span>
+      </button>
+      <ul class="dock__links" id="dockLinks">
+        <li><a href="#studio" data-nav="studio">Studio</a></li>
+        <li><a href="#cuts" data-nav="cuts">Cuts</a></li>
+        <li><a href="#people" data-nav="people">People</a></li>
+        <li class="dock__pill" aria-hidden="true"></li>
+      </ul>
+      <a href="#book" class="dock__book" data-nav="book">
+        <span>Book</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+      </a>
+    </nav>
   </header>
 
-  <!-- ===== NAV 2: the guard dial rail ===== -->
-  <nav class="dial" aria-label="Section guide">
-    <div class="dial__track"><div class="dial__fill"></div></div>
-    <ol>
-      <li><a href="#top" data-guard="0"><b>#0</b><em>Skin</em></a></li>
-      <li><a href="#line" data-guard="1"><b>#1</b><em>The line</em></a></li>
-      <li><a href="#builder" data-guard="2"><b>#2</b><em>Build a fade</em></a></li>
-      <li><a href="#barbers" data-guard="3"><b>#3</b><em>Hands</em></a></li>
-      <li><a href="#ritual" data-guard="4"><b>#4</b><em>Ritual</em></a></li>
-      <li><a href="#book" data-guard="5"><b>#5</b><em>The chair</em></a></li>
-    </ol>
-  </nav>
+  <main id="main">
 
-  <!-- ===== Full-screen menu ===== -->
-  <div class="menu" id="menu" aria-hidden="true">
-    <div class="menu__pole" aria-hidden="true"></div>
-    <ul class="menu__list">
-      <li><a href="#top"><span class="menu__g">#0</span><span class="menu__t">Studio</span><span class="menu__d">Where it starts</span></a></li>
-      <li><a href="#line"><span class="menu__g">#1</span><span class="menu__t">The line</span><span class="menu__d">What we believe</span></a></li>
-      <li><a href="#builder"><span class="menu__g">#2</span><span class="menu__t">Build a fade</span><span class="menu__d">Design yours</span></a></li>
-      <li><a href="#barbers"><span class="menu__g">#3</span><span class="menu__t">Barbers</span><span class="menu__d">Steady hands</span></a></li>
-      <li><a href="#ritual"><span class="menu__g">#4</span><span class="menu__t">Ritual</span><span class="menu__d">45 minutes, five acts</span></a></li>
-      <li><a href="#book"><span class="menu__g">#5</span><span class="menu__t">Take the chair</span><span class="menu__d">Book now</span></a></li>
-    </ul>
-    <div class="menu__foot">
-      <p>12 Akin Adesola St, Victoria Island, Lagos</p>
-      <p>Mon–Sat 10:00–20:00 · Sun 12:00–18:00</p>
-      <p class="menu__social"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">WhatsApp</a></p>
-    </div>
-  </div>
-
-  <main id="top">
-
-    <!-- ===== #0 HERO — the slashed title ===== -->
-    <section class="hero" data-section="0">
-      <div class="hero__meta">
-        <span>Barber studio</span>
-        <span>6.4281° N, 3.4219° E</span>
-        <span>Lagos — Est. 2019</span>
-      </div>
-
-      <h1 class="slash" id="slash" aria-label="Falz Blade">
-        <span class="slash__layer slash__layer--a" aria-hidden="true"><span>FALZ</span><span>BLADE</span></span>
-        <span class="slash__layer slash__layer--b" aria-hidden="true"><span>FALZ</span><span>BLADE</span></span>
-        <svg class="slash__cut" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
-          <line id="cutLine" x1="0" y1="62" x2="100" y2="38" vector-effect="non-scaling-stroke" />
-        </svg>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="studio" data-section="studio" aria-labelledby="heroTitle">
+      <p class="eyebrow hero__eyebrow reveal">The modern barber studio <span aria-hidden="true">/</span> Lagos</p>
+      <h1 class="hero__title reveal" id="heroTitle">
+        <span>Good hair.</span>
+        <em>Better presence.</em>
       </h1>
+      <p class="hero__lede reveal">Personal cuts. Precise craft. A space to make time for yourself.</p>
 
-      <div class="hero__bottom">
-        <p class="hero__lede">
-          <em>One line</em> separates a haircut from a signature.
-          We spend forty-five minutes getting it exactly right.
-        </p>
-        <a href="#builder" class="btn btn--blood">
-          <span>Build your fade</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11" /></svg>
-        </a>
-      </div>
+      <div class="hero__stage reveal">
+        <p class="side-label" aria-hidden="true"><span>01</span> The studio</p>
 
-      <div class="hero__scroll" aria-hidden="true">
-        <span>Scroll to fade</span>
-        <i></i>
-      </div>
-    </section>
+        <figure class="hero__media" id="heroMedia">
+          <img src="assets/img/hero.jpg" alt="A barber in a cream sweater shaping a client's textured curls with clippers inside the studio" class="hero__poster" width="2000" height="2660" fetchpriority="high" />
+          <!-- A video is injected here when CONFIG.heroVideo is set in script.js -->
+          <button class="hero__motion" id="heroMotion" hidden aria-pressed="false">
+            <span class="hero__motion-icon" aria-hidden="true"></span>
+            <span class="hero__motion-text">Pause film</span>
+          </button>
+        </figure>
 
-    <!-- barber-pole ticker -->
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker__row">
-        <span>Skin fade</span><b>✕</b><span>Low taper</span><b>✕</b><span>Line-up</span><b>✕</b><span>Beard sculpt</span><b>✕</b><span>Hot towel</span><b>✕</b><span>Burst fade</span><b>✕</b><span>Waves</span><b>✕</b>
-        <span>Skin fade</span><b>✕</b><span>Low taper</span><b>✕</b><span>Line-up</span><b>✕</b><span>Beard sculpt</span><b>✕</b><span>Hot towel</span><b>✕</b><span>Burst fade</span><b>✕</b><span>Waves</span><b>✕</b>
-      </div>
-    </div>
-
-    <!-- ===== #1 MANIFESTO — words sharpen as you scroll ===== -->
-    <section class="line" id="line" data-section="1">
-      <div class="sec-tag"><b>#1</b> The line</div>
-      <p class="sharpen" id="sharpen">
-        Most cuts are finished when the clock says so. Ours are finished when the line is clean, the blend is invisible, and you catch yourself in a window on Awolowo Road and look twice.
-      </p>
-
-      <div class="stats">
-        <div class="stat"><span class="stat__n" data-count="45">0</span><span class="stat__u">min</span><p>Minimum per chair. Never rushed.</p></div>
-        <div class="stat"><span class="stat__n" data-count="0.5" data-dec="1">0</span><span class="stat__u">mm</span><p>Our shortest guard. Then the foil.</p></div>
-        <div class="stat"><span class="stat__n" data-count="12400">0</span><span class="stat__u">+</span><p>Heads that left sharper than they came.</p></div>
-      </div>
-    </section>
-
-    <!-- ===== #2 FADE BUILDER ===== -->
-    <section class="builder" id="builder" data-section="2">
-      <div class="sec-tag sec-tag--dark"><b>#2</b> Build a fade</div>
-      <div class="builder__head">
-        <h2>Design it here.<br /><em>We'll cut it in the chair.</em></h2>
-        <p>Play with height, guard and length. Your cut code goes straight to your barber, so you never have to say "like, a bit shorter on the sides".</p>
-      </div>
-
-      <div class="builder__grid">
-        <div class="builder__stage">
-          <svg class="headsvg" id="headSvg" viewBox="0 0 320 360" role="img" aria-label="Side profile preview of your fade">
-            <defs>
-              <clipPath id="headClip">
-                <path id="headPath" d="M112 360 L112 300 C100 262 72 232 72 172 C72 104 124 62 186 62 C238 62 262 104 260 148 L262 166 C268 178 282 194 278 204 C274 211 264 210 263 214 L265 228 C264 236 259 240 257 246 C253 262 238 268 216 268 C202 268 197 282 197 310 L197 360 Z" />
-              </clipPath>
-              <clipPath id="hairZone">
-                <path id="hairZonePath" d="M0 0 L250 0 L250 116 C232 118 214 126 206 142 L194 200 L178 204 C170 172 132 170 128 200 L118 252 L0 252 Z" />
-              </clipPath>
-              <linearGradient id="fadeGrad" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="240" y2="170">
-                <stop id="fadeLo" offset="0" stop-color="#14110e" stop-opacity="0" />
-                <stop offset="1" stop-color="#14110e" stop-opacity="1" />
-              </linearGradient>
-              <pattern id="curl" width="7" height="7" patternUnits="userSpaceOnUse">
-                <circle cx="3.5" cy="3.5" r="1.6" fill="#2a241e" />
-              </pattern>
-              <mask id="fadeMask">
-                <rect width="320" height="360" fill="url(#fadeMaskGrad)" />
-              </mask>
-              <linearGradient id="fadeMaskGrad" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="240" y2="170">
-                <stop id="maskLo" offset="0" stop-color="#fff" stop-opacity="0" />
-                <stop offset="1" stop-color="#fff" stop-opacity="1" />
-              </linearGradient>
-            </defs>
-
-            <!-- guide lines -->
-            <g class="guides">
-              <line x1="0" y1="240" x2="320" y2="240" id="guideLo" />
-              <line x1="0" y1="170" x2="320" y2="170" id="guideHi" />
-              <text x="6" y="236" id="guideLoTxt">#0</text>
-              <text x="6" y="166" id="guideHiTxt">#4</text>
-            </g>
-
-            <!-- skin -->
-            <path d="M112 360 L112 300 C100 262 72 232 72 172 C72 104 124 62 186 62 C238 62 262 104 260 148 L262 166 C268 178 282 194 278 204 C274 211 264 210 263 214 L265 228 C264 236 259 240 257 246 C253 262 238 268 216 268 C202 268 197 282 197 310 L197 360 Z" class="skin" />
-            <ellipse cx="152" cy="186" rx="13" ry="21" class="ear" />
-            <path d="M146 178 C152 174 158 182 152 190" class="ear-in" />
-            <path d="M236 160 L252 158" class="brow" />
-            <circle cx="244" cy="172" r="2.2" class="eye" />
-
-            <!-- hair: scalp layer + top volume, both faded -->
-            <g id="hairGroup" mask="url(#fadeMask)">
-              <g clip-path="url(#hairZone)">
-                <g clip-path="url(#headClip)">
-                  <rect width="320" height="360" fill="#14110e" />
-                  <rect width="320" height="360" fill="url(#curl)" />
-                </g>
-                <path id="topVol" d="" fill="#14110e" />
-                <path id="topVolTex" d="" fill="url(#curl)" />
-              </g>
-            </g>
-            <path id="lineUp" d="M250 116 C232 118 214 126 206 142 L194 200" class="lineup" />
-          </svg>
-
-          <div class="code" id="cutCode" aria-live="polite">FB · MID · #0→#4 · TOP 3 · LINE-UP</div>
+        <div class="hero__notch">
+          <p class="hero__caption"><em>Good conversation.</em> Exceptional cuts.</p>
+          <a href="#book" class="btn btn--cobalt">
+            <span>Book a chair</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+          </a>
         </div>
+      </div>
 
-        <form class="controls" id="builderForm" onsubmit="return false">
-          <fieldset>
-            <legend>Fade height</legend>
-            <div class="chips" role="radiogroup">
-              <label><input type="radio" name="height" value="taper" /><span>Taper</span></label>
-              <label><input type="radio" name="height" value="low" /><span>Low</span></label>
-              <label><input type="radio" name="height" value="mid" checked /><span>Mid</span></label>
-              <label><input type="radio" name="height" value="high" /><span>High</span></label>
-            </div>
-          </fieldset>
+      <dl class="hero__facts reveal">
+        <div><dt>Since</dt><dd>2019</dd></div>
+        <div><dt>Chairs</dt><dd>Four</dd></div>
+        <div><dt>Victoria Island</dt><dd>12 Akin Adesola St</dd></div>
+        <div class="hero__status" id="openStatus"><dt>Today</dt><dd>Checking hours</dd></div>
+      </dl>
+    </section>
 
-          <fieldset>
-            <legend>Bottom guard <output id="guardOut">#0 — skin</output></legend>
-            <input type="range" id="guard" min="0" max="3" step="1" value="0" />
-            <div class="ticks"><span>#0</span><span>#½</span><span>#1</span><span>#2</span></div>
-          </fieldset>
+    <!-- ============ CUT SHOWCASE ============ -->
+    <section class="showcase" id="cuts" data-section="cuts" aria-labelledby="cutsTitle">
+      <div class="showcase__inner">
+        <header class="showcase__head">
+          <p class="eyebrow eyebrow--light">02 <span aria-hidden="true">/</span> The cuts</p>
+          <h2 id="cutsTitle">Your style. <em>In focus.</em></h2>
+        </header>
 
-          <fieldset>
-            <legend>Length on top <output id="topOut">3</output></legend>
-            <input type="range" id="topLen" min="0" max="6" step="1" value="3" />
-            <div class="ticks"><span>Buzz</span><span></span><span></span><span>Crop</span><span></span><span></span><span>Volume</span></div>
-          </fieldset>
-
-          <fieldset class="toggles">
-            <label class="switch"><input type="checkbox" id="lineup" checked /><span></span>Razor line-up</label>
-            <label class="switch"><input type="checkbox" id="beard" /><span></span>Beard sculpt</label>
-          </fieldset>
-
-          <div class="price">
-            <span>Estimate</span>
-            <strong id="price">₦18,000</strong>
+        <div class="showcase__body" id="showcase" tabindex="-1">
+          <div class="showcase__media" id="cutMedia" aria-live="off">
+            <img class="showcase__img is-active" data-cut="taper" src="assets/img/cut-taper.jpg" alt="Close view of a sharp taper with a hard part, styled back with volume" style="--pos: 50% 18%" />
+            <img class="showcase__img" data-cut="texture" src="assets/img/cut-texture.jpg" alt="Textured curly top with a low fade, being refined with clippers" style="--pos: 60% 72%" loading="lazy" />
+            <img class="showcase__img" data-cut="classic" src="assets/img/cut-classic.jpg" alt="A barber finishing a classic tapered cut with hold spray" style="--pos: 50% 40%" loading="lazy" />
+            <div class="showcase__grain" aria-hidden="true"></div>
           </div>
 
-          <a href="#book" class="btn btn--ink" id="useCut">
-            <span>Book this exact cut</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11" /></svg>
-          </a>
-        </form>
+          <div class="showcase__detail" aria-live="polite">
+            <p class="showcase__count"><span id="cutIndex">01</span> <span aria-hidden="true">/</span> 03</p>
+            <div class="showcase__text" id="cutText">
+              <h3 id="cutName">The Taper</h3>
+              <p id="cutDesc">A gradual fade that cleans the neckline and sides while keeping your shape soft and natural. Finished with a razor line.</p>
+            </div>
+            <dl class="showcase__meta">
+              <div><dt>Duration</dt><dd id="cutTime">45 min</dd></div>
+              <div><dt>From</dt><dd id="cutPrice">₦25,000</dd></div>
+            </dl>
+            <a href="#book" class="btn btn--cobalt" id="bookCut">
+              <span>Book this cut</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="showcase__bar">
+          <div class="tabs" role="tablist" aria-label="Haircut styles" id="cutTabs">
+            <button role="tab" id="tab-taper" aria-selected="true" aria-controls="showcase" data-cut="taper"><span>01</span>Taper</button>
+            <button role="tab" id="tab-texture" aria-selected="false" aria-controls="showcase" data-cut="texture" tabindex="-1"><span>02</span>Texture</button>
+            <button role="tab" id="tab-classic" aria-selected="false" aria-controls="showcase" data-cut="classic" tabindex="-1"><span>03</span>Classic</button>
+            <i class="tabs__line" aria-hidden="true"></i>
+          </div>
+          <div class="arrows">
+            <button class="arrow" id="cutPrev" aria-label="Previous style"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" /></svg></button>
+            <button class="arrow" id="cutNext" aria-label="Next style"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></button>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ===== #3 BARBERS ===== -->
-    <section class="barbers" id="barbers" data-section="3">
-      <div class="sec-tag"><b>#3</b> Hands</div>
-      <div class="barbers__head">
-        <h2>Four chairs.<br /><em>Four steady hands.</em></h2>
-        <p>Tap a card to see what they're known for.</p>
+    <!-- ============ BEFORE / AFTER ============ -->
+    <section class="craft" id="craft" data-section="cuts" aria-labelledby="craftTitle">
+      <div class="craft__head">
+        <p class="eyebrow">03 <span aria-hidden="true">/</span> The result</p>
+        <h2 id="craftTitle" class="reveal">Craft you <em>can see.</em></h2>
+        <p class="craft__lede reveal">Drag across to compare. Same chair, same light, forty five minutes apart.</p>
       </div>
 
-      <div class="cards">
-        <button class="card" data-barber="Tunde">
-          <span class="card__inner">
-            <span class="card__front">
-              <span class="card__no">01</span>
-              <span class="card__mono">TA</span>
-              <span class="card__name">Tunde <i>"Steady"</i> Adebayo</span>
-              <span class="card__role">Founder · Skin fades</span>
-            </span>
-            <span class="card__back">
-              <span class="card__q">"The fade lives in the last two millimetres."</span>
-              <span class="bars">
-                <span><i>Precision</i><b style="--v:.98"></b></span>
-                <span><i>Speed</i><b style="--v:.62"></b></span>
-                <span><i>Gist</i><b style="--v:.85"></b></span>
-              </span>
-              <span class="card__role">Since 2011 · Ikeja → V.I.</span>
-            </span>
-          </span>
-        </button>
-
-        <button class="card" data-barber="Kelechi">
-          <span class="card__inner">
-            <span class="card__front">
-              <span class="card__no">02</span>
-              <span class="card__mono">KO</span>
-              <span class="card__name">Kelechi <i>"Kels"</i> Obi</span>
-              <span class="card__role">Line-ups · Waves</span>
-            </span>
-            <span class="card__back">
-              <span class="card__q">"A line-up is geometry with feelings."</span>
-              <span class="bars">
-                <span><i>Precision</i><b style="--v:.94"></b></span>
-                <span><i>Speed</i><b style="--v:.8"></b></span>
-                <span><i>Gist</i><b style="--v:.7"></b></span>
-              </span>
-              <span class="card__role">Since 2015 · Enugu-born</span>
-            </span>
-          </span>
-        </button>
-
-        <button class="card" data-barber="Dami">
-          <span class="card__inner">
-            <span class="card__front">
-              <span class="card__no">03</span>
-              <span class="card__mono">DA</span>
-              <span class="card__name">Damilola <i>"Dami"</i> Ade</span>
-              <span class="card__role">Textured crops · Colour</span>
-            </span>
-            <span class="card__back">
-              <span class="card__q">"Your hair already knows what it wants."</span>
-              <span class="bars">
-                <span><i>Precision</i><b style="--v:.88"></b></span>
-                <span><i>Speed</i><b style="--v:.74"></b></span>
-                <span><i>Gist</i><b style="--v:.96"></b></span>
-              </span>
-              <span class="card__role">Since 2017 · Ex-London</span>
-            </span>
-          </span>
-        </button>
-
-        <button class="card" data-barber="Ifeanyi">
-          <span class="card__inner">
-            <span class="card__front">
-              <span class="card__no">04</span>
-              <span class="card__mono">IN</span>
-              <span class="card__name">Ifeanyi <i>"Blade"</i> Nwosu</span>
-              <span class="card__role">Beards · Hot towel shave</span>
-            </span>
-            <span class="card__back">
-              <span class="card__q">"Straight razor, steady breath, no rush."</span>
-              <span class="bars">
-                <span><i>Precision</i><b style="--v:.92"></b></span>
-                <span><i>Speed</i><b style="--v:.55"></b></span>
-                <span><i>Gist</i><b style="--v:.78"></b></span>
-              </span>
-              <span class="card__role">Since 2013 · Shave specialist</span>
-            </span>
-          </span>
-        </button>
+      <!-- Swap these sources for a matching before and after pair of the same client. -->
+      <div class="compare reveal" id="compare"
+           data-before="assets/img/compare.jpg"
+           data-after="assets/img/compare.jpg"
+           data-before-alt="Client before the cut, with grown out sides"
+           data-after-alt="Client after the cut, with a clean skin fade and textured top"
+           style="--pos: 50%">
+        <img class="compare__img compare__img--after" alt="" />
+        <div class="compare__before">
+          <img class="compare__img compare__img--before" alt="" />
+        </div>
+        <span class="compare__tag compare__tag--before" aria-hidden="true">Before</span>
+        <span class="compare__tag compare__tag--after" aria-hidden="true">After</span>
+        <div class="compare__handle" aria-hidden="true">
+          <span><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" /></svg></span>
+        </div>
+        <input class="compare__range" type="range" min="0" max="100" value="50" step="0.5" aria-label="Before and after comparison. Use arrow keys to reveal more of the before or after photo." />
       </div>
     </section>
 
-    <!-- ===== #4 RITUAL — the blade draws down the page ===== -->
-    <section class="ritual" id="ritual" data-section="4">
-      <div class="sec-tag sec-tag--dark"><b>#4</b> Ritual</div>
-      <h2 class="ritual__title">Forty-five minutes.<br /><em>Five acts.</em></h2>
-
-      <div class="ritual__wrap">
-        <div class="ritual__rail"><div class="ritual__blade" id="ritualBlade"></div></div>
-        <ol class="acts">
-          <li class="act"><span class="act__t">00:00</span><h3>The consult</h3><p>Coffee or zobo. We read your crown, your growth pattern and your cut code before a single clipper comes out.</p></li>
-          <li class="act"><span class="act__t">05:00</span><h3>The map</h3><p>Guide lines get set at the height you chose. We work from the top down, guard by guard.</p></li>
-          <li class="act"><span class="act__t">15:00</span><h3>The blend</h3><p>Lever, flick, repeat. The bit most shops rush is where we spend most of the time.</p></li>
-          <li class="act"><span class="act__t">35:00</span><h3>The line</h3><p>Straight razor, hot lather, one breath per stroke. Forehead, temple, nape.</p></li>
-          <li class="act"><span class="act__t">42:00</span><h3>The reveal</h3><p>Hot towel, cool tonic, the two-mirror check. You don't pay until you love it.</p></li>
-        </ol>
+    <!-- ============ PEOPLE ============ -->
+    <section class="people" id="people" data-section="people" aria-labelledby="peopleTitle">
+      <div class="people__head">
+        <p class="eyebrow">04 <span aria-hidden="true">/</span> People</p>
+        <h2 id="peopleTitle" class="reveal">The people behind <em>the precision.</em></h2>
       </div>
+
+      <figure class="people__pano reveal">
+        <img src="assets/img/team.jpg" alt="Two barbers at work in the studio, one shaping a client's hair with scissors while the other looks on" loading="lazy" />
+        <figcaption>
+          <q>The details make the difference.</q>
+          <span>Miles <span aria-hidden="true">/</span> <em>Senior barber</em></span>
+        </figcaption>
+      </figure>
+
+      <ul class="roster">
+        <li class="roster__row reveal">
+          <span class="roster__no">01</span>
+          <span class="roster__name">Miles</span>
+          <span class="roster__role"><em>Senior barber</em></span>
+          <span class="roster__spec">Skin fades, textured tops, curl definition</span>
+          <button class="roster__cta" data-barber="miles" aria-haspopup="dialog">
+            View work <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+          </button>
+        </li>
+        <li class="roster__row reveal">
+          <span class="roster__no">02</span>
+          <span class="roster__name">Andre</span>
+          <span class="roster__role"><em>Master barber</em></span>
+          <span class="roster__spec">Classic cuts, scissor work, beard sculpting</span>
+          <button class="roster__cta" data-barber="andre" aria-haspopup="dialog">
+            View work <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+          </button>
+        </li>
+      </ul>
     </section>
 
-    <!-- ===== #5 BOOK — the ticket ===== -->
-    <section class="book" id="book" data-section="5">
-      <div class="sec-tag"><b>#5</b> The chair</div>
-      <div class="book__grid">
-        <div class="book__form">
-          <h2>Your chair<br /><em>is waiting.</em></h2>
+    <!-- ============ BOOKING ============ -->
+    <section class="book" id="book" data-section="book" aria-labelledby="bookTitle">
+      <div class="book__inner">
+        <header class="book__head">
+          <p class="eyebrow eyebrow--light">05 <span aria-hidden="true">/</span> Booking</p>
+          <h2 id="bookTitle">Your chair <em>is waiting.</em></h2>
+          <p class="book__lede">Choose your cut, your barber and your moment. You only pay in the studio.</p>
+        </header>
 
-          <form id="bookForm" novalidate>
-            <label class="field">
-              <span>Your name</span>
-              <input type="text" id="bName" placeholder="e.g. Seun" autocomplete="name" required />
-            </label>
+        <form class="bform" id="bookForm" novalidate>
+          <div class="bform__fields">
 
-            <div class="field">
-              <span>Barber</span>
-              <div class="chips chips--light" id="bBarber">
-                <label><input type="radio" name="barber" value="Any" checked /><span>Any</span></label>
-                <label><input type="radio" name="barber" value="Tunde" /><span>Tunde</span></label>
-                <label><input type="radio" name="barber" value="Kelechi" /><span>Kels</span></label>
-                <label><input type="radio" name="barber" value="Dami" /><span>Dami</span></label>
-                <label><input type="radio" name="barber" value="Ifeanyi" /><span>Ifeanyi</span></label>
+            <fieldset class="group" id="gService">
+              <legend><span>01</span> Service</legend>
+              <div class="options" id="serviceOptions"></div>
+              <label class="addon">
+                <input type="checkbox" id="addonTowel" />
+                <span class="addon__box" aria-hidden="true"></span>
+                <span>Add hot towel finish</span>
+                <span class="addon__price">₦5,000</span>
+              </label>
+              <p class="err" id="errService"></p>
+            </fieldset>
+
+            <fieldset class="group" id="gBarber">
+              <legend><span>02</span> Barber</legend>
+              <div class="options options--row" id="barberOptions">
+                <label class="opt opt--compact"><input type="radio" name="barber" value="any" /><span class="opt__body"><b>No preference</b><small>First available</small></span></label>
+                <label class="opt opt--compact"><input type="radio" name="barber" value="miles" /><span class="opt__body"><b>Miles</b><small>Senior barber</small></span></label>
+                <label class="opt opt--compact"><input type="radio" name="barber" value="andre" /><span class="opt__body"><b>Andre</b><small>Master barber</small></span></label>
+              </div>
+              <p class="err" id="errBarber"></p>
+            </fieldset>
+
+            <div class="group group--split">
+              <fieldset class="group__col" id="gDate">
+                <legend><span>03</span> Date</legend>
+                <label class="date">
+                  <span class="sr">Appointment date</span>
+                  <input type="date" id="bDate" required />
+                </label>
+                <p class="hint" id="dateHint">Mon to Sat 10:00 to 20:00, Sun 12:00 to 18:00</p>
+                <p class="err" id="errDate"></p>
+              </fieldset>
+              <fieldset class="group__col" id="gTime">
+                <legend><span>04</span> Time</legend>
+                <div class="slots" id="slots"><p class="hint">Pick a date to see open times.</p></div>
+                <p class="err" id="errTime"></p>
+              </fieldset>
+            </div>
+
+            <fieldset class="group">
+              <legend><span>05</span> Your details</legend>
+              <div class="inputs">
+                <label class="input">
+                  <span>Full name</span>
+                  <input type="text" id="bName" autocomplete="name" required />
+                </label>
+                <label class="input">
+                  <span>Phone</span>
+                  <input type="tel" id="bPhone" autocomplete="tel" inputmode="tel" placeholder="0803 000 0000" required />
+                </label>
+              </div>
+              <p class="err" id="errDetails"></p>
+            </fieldset>
+          </div>
+
+          <aside class="summary" id="summary" aria-labelledby="summaryTitle">
+            <div class="summary__view" id="summaryView">
+              <h3 id="summaryTitle">Your appointment</h3>
+              <dl>
+                <div><dt>Service</dt><dd id="sService">Not chosen</dd></div>
+                <div><dt>Barber</dt><dd id="sBarber">Not chosen</dd></div>
+                <div><dt>Date</dt><dd id="sDate">Not chosen</dd></div>
+                <div><dt>Time</dt><dd id="sTime">Not chosen</dd></div>
+                <div><dt>Duration</dt><dd id="sDuration">0 min</dd></div>
+              </dl>
+              <div class="summary__total">
+                <span>Total</span>
+                <strong id="sTotal">₦0</strong>
+              </div>
+              <button type="submit" class="btn btn--mint btn--block">
+                <span>Confirm booking</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+              </button>
+              <p class="summary__note" id="formStatus" role="status" aria-live="polite">Free cancellation up to 4 hours before.</p>
+            </div>
+
+            <div class="summary__done" id="summaryDone" hidden tabindex="-1">
+              <p class="eyebrow">Confirmed</p>
+              <h3>See you soon, <em id="dName">friend</em>.</h3>
+              <p class="summary__ref">Reference <b id="dRef">FF0000</b></p>
+              <dl id="dList"></dl>
+              <div class="summary__actions">
+                <button type="button" class="btn btn--mint btn--block" id="addCal">
+                  <span>Add to calendar</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                </button>
+                <a class="btn btn--ghost btn--block" id="waLink" hidden target="_blank" rel="noopener">
+                  <span>Send on WhatsApp</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+                </a>
+                <button type="button" class="textlink" id="bookAgain">Make another booking</button>
               </div>
             </div>
-
-            <div class="field">
-              <span>Day</span>
-              <div class="days" id="bDays"></div>
-            </div>
-
-            <div class="field">
-              <span>Time</span>
-              <div class="chips chips--light chips--time" id="bTimes"></div>
-            </div>
-
-            <button type="submit" class="btn btn--blood btn--wide">
-              <span>Print my ticket</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11" /></svg>
-            </button>
-          </form>
-        </div>
-
-        <div class="ticket-wrap">
-          <div class="ticket" id="ticket">
-            <div class="ticket__top">
-              <span class="ticket__brand">FALZ / BLADE</span>
-              <span class="ticket__no" id="tNo">Nº 0000</span>
-            </div>
-            <div class="ticket__row"><span>Guest</span><b id="tName">—</b></div>
-            <div class="ticket__row"><span>Cut code</span><b id="tCode">FB · MID · #0→#4 · TOP 3 · LINE-UP</b></div>
-            <div class="ticket__row"><span>Barber</span><b id="tBarber">Any</b></div>
-            <div class="ticket__row ticket__row--split">
-              <div><span>Day</span><b id="tDay">—</b></div>
-              <div><span>Time</span><b id="tTime">—</b></div>
-            </div>
-            <div class="ticket__row"><span>Estimate</span><b id="tPrice">₦18,000</b></div>
-            <div class="ticket__perf"></div>
-            <div class="ticket__stub">
-              <div class="barcode" aria-hidden="true"></div>
-              <span>Show this at the door. Arrive 5 minutes early.</span>
-            </div>
-            <div class="ticket__stamp" id="tStamp">Booked</div>
-          </div>
-          <p class="ticket__note" id="tNote">Your ticket updates as you go.</p>
-        </div>
+          </aside>
+        </form>
       </div>
     </section>
   </main>
 
-  <!-- ===== Footer ===== -->
-  <footer class="foot">
-    <div class="foot__big" aria-hidden="true">
-      <div class="foot__row"><span>STAY SHARP</span><span>STAY SHARP</span><span>STAY SHARP</span><span>STAY SHARP</span></div>
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <a href="#studio" class="wordmark wordmark--foot" aria-label="FORM and FADE, back to top">
+      <span>Form</span><span><i>&amp;</i> Fade</span>
+    </a>
+    <div class="footer__col">
+      <p class="footer__k"><em>Opening hours</em></p>
+      <p>Mon to Sat, 10:00 to 20:00<br />Sun, 12:00 to 18:00</p>
     </div>
-    <div class="foot__grid">
-      <div>
-        <span class="foot__k">Find us</span>
-        <p>12 Akin Adesola Street<br />Victoria Island, Lagos</p>
-      </div>
-      <div>
-        <span class="foot__k">Hours</span>
-        <p>Mon – Sat · 10:00 – 20:00<br />Sun · 12:00 – 18:00</p>
-      </div>
-      <div>
-        <span class="foot__k">Follow</span>
-        <p><a href="#">Instagram</a> · <a href="#">TikTok</a> · <a href="#">WhatsApp</a></p>
-      </div>
-      <div>
-        <span class="foot__k">©</span>
-        <p>Falz Blade Studio<br />Cut in Lagos.</p>
-      </div>
+    <div class="footer__col">
+      <p class="footer__k"><em>Lagos</em></p>
+      <p>12 Akin Adesola Street,<br />Victoria Island, Lagos.</p>
     </div>
+    <ul class="footer__social" aria-label="Social media">
+      <li><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" class="fill" /></svg></a></li>
+      <li><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10v8M6 6v.01M10 18v-8M10 13.5c0-2 1.5-3.5 3.5-3.5S17 11.5 17 13.5V18" /></svg></a></li>
+      <li><a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5M14 4c.5 2.5 2.5 4 5 4" /></svg></a></li>
+    </ul>
+    <p class="footer__base">© <span id="year">2026</span> FORM &amp; FADE Studio. Cut in Lagos.</p>
   </footer>
+
+  <!-- ============ PORTFOLIO OVERLAY ============ -->
+  <dialog class="folio" id="folio" aria-labelledby="folioName">
+    <div class="folio__wrap">
+      <header class="folio__head">
+        <div>
+          <p class="eyebrow" id="folioRole">Senior barber</p>
+          <h2 id="folioName">Miles</h2>
+        </div>
+        <button class="folio__close" id="folioClose" aria-label="Close portfolio">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+        </button>
+      </header>
+      <p class="folio__bio" id="folioBio"></p>
+      <div class="folio__strip" id="folioStrip" tabindex="0" aria-label="Portfolio photos, scroll horizontally"></div>
+      <footer class="folio__foot">
+        <p class="folio__spec" id="folioSpec"></p>
+        <button class="btn btn--cobalt" id="folioBook">
+          <span>Book with <span id="folioBookName">Miles</span></span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+        </button>
+      </footer>
+    </div>
+  </dialog>
 
   <script src="script.js"></script>
 </body>
