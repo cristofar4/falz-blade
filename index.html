@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Falz Blade — Lagos Barber Studio</title>
+  <meta name="description" content="Falz Blade — a Lagos barber studio. Build your fade, pick your barber, take the chair." />
+  <meta name="theme-color" content="#0d0c0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== Intro: the razor opens the page ===== -->
+  <div class="intro" aria-hidden="true">
+    <div class="intro__half intro__half--top"></div>
+    <div class="intro__half intro__half--bottom"></div>
+    <div class="intro__line"></div>
+    <div class="intro__count">#<span>0</span></div>
+  </div>
+
+  <!-- custom cursor -->
+  <div class="cursor" aria-hidden="true"><span></span></div>
+
+  <!-- ===== NAV 1: brand + razor toggle ===== -->
+  <header class="topbar">
+    <a href="#top" class="brand" aria-label="Falz Blade home">
+      <span class="brand__mark">FB</span>
+      <span class="brand__word">Falz<i>/</i>Blade</span>
+    </a>
+
+    <div class="status" id="chairStatus" aria-live="polite">
+      <span class="status__dot"></span>
+      <span class="status__text">Checking the chairs…</span>
+    </div>
+
+    <button class="razor" id="razorBtn" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+      <span class="razor__label">Menu</span>
+      <svg class="razor__svg" viewBox="0 0 120 40" aria-hidden="true">
+        <!-- handle -->
+        <g class="razor__handle">
+          <rect x="44" y="15" width="72" height="11" rx="5.5" />
+          <circle cx="110" cy="20.5" r="1.6" class="razor__rivet" />
+        </g>
+        <!-- blade pivots on the pin at (50,20.5) -->
+        <g class="razor__blade">
+          <path d="M50 14 L10 14 Q4 14 4 20.5 Q4 27 10 27 L50 27 Z" />
+          <line x1="8" y1="26" x2="50" y2="26" class="razor__edge" />
+        </g>
+        <circle cx="50" cy="20.5" r="2.4" class="razor__pin" />
+      </svg>
+    </button>
+  </header>
+
+  <!-- ===== NAV 2: the guard dial rail ===== -->
+  <nav class="dial" aria-label="Section guide">
+    <div class="dial__track"><div class="dial__fill"></div></div>
+    <ol>
+      <li><a href="#top" data-guard="0"><b>#0</b><em>Skin</em></a></li>
+      <li><a href="#line" data-guard="1"><b>#1</b><em>The line</em></a></li>
+      <li><a href="#builder" data-guard="2"><b>#2</b><em>Build a fade</em></a></li>
+      <li><a href="#barbers" data-guard="3"><b>#3</b><em>Hands</em></a></li>
+      <li><a href="#ritual" data-guard="4"><b>#4</b><em>Ritual</em></a></li>
+      <li><a href="#book" data-guard="5"><b>#5</b><em>The chair</em></a></li>
+    </ol>
+  </nav>
+
+  <!-- ===== Full-screen menu ===== -->
+  <div class="menu" id="menu" aria-hidden="true">
+    <div class="menu__pole" aria-hidden="true"></div>
+    <ul class="menu__list">
+      <li><a href="#top"><span class="menu__g">#0</span><span class="menu__t">Studio</span><span class="menu__d">Where it starts</span></a></li>
+      <li><a href="#line"><span class="menu__g">#1</span><span class="menu__t">The line</span><span class="menu__d">What we believe</span></a></li>
+      <li><a href="#builder"><span class="menu__g">#2</span><span class="menu__t">Build a fade</span><span class="menu__d">Design yours</span></a></li>
+      <li><a href="#barbers"><span class="menu__g">#3</span><span class="menu__t">Barbers</span><span class="menu__d">Steady hands</span></a></li>
+      <li><a href="#ritual"><span class="menu__g">#4</span><span class="menu__t">Ritual</span><span class="menu__d">45 minutes, five acts</span></a></li>
+      <li><a href="#book"><span class="menu__g">#5</span><span class="menu__t">Take the chair</span><span class="menu__d">Book now</span></a></li>
+    </ul>
+    <div class="menu__foot">
+      <p>12 Akin Adesola St, Victoria Island, Lagos</p>
+      <p>Mon–Sat 10:00–20:00 · Sun 12:00–18:00</p>
+      <p class="menu__social"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">WhatsApp</a></p>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- ===== #0 HERO — the slashed title ===== -->
+    <section class="hero" data-section="0">
+      <div class="hero__meta">
+        <span>Barber studio</span>
+        <span>6.4281° N, 3.4219° E</span>
+        <span>Lagos — Est. 2019</span>
+      </div>
+
+      <h1 class="slash" id="slash" aria-label="Falz Blade">
+        <span class="slash__layer slash__layer--a" aria-hidden="true"><span>FALZ</span><span>BLADE</span></span>
+        <span class="slash__layer slash__layer--b" aria-hidden="true"><span>FALZ</span><span>BLADE</span></span>
+        <svg class="slash__cut" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
+          <line id="cutLine" x1="0" y1="62" x2="100" y2="38" vector-effect="non-scaling-stroke" />
+        </svg>
+      </h1>
+
+      <div class="hero__bottom">
+        <p class="hero__lede">
+          <em>One line</em> separates a haircut from a signature.
+          We spend forty-five minutes getting it exactly right.
+        </p>
+        <a href="#builder" class="btn btn--blood">
+          <span>Build your fade</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11" /></svg>
+        </a>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span>Scroll to fade</span>
+        <i></i>
+      </div>
+    </section>
+
+    <!-- barber-pole ticker -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__row">
+        <span>Skin fade</span><b>✕</b><span>Low taper</span><b>✕</b><span>Line-up</span><b>✕</b><span>Beard sculpt</span><b>✕</b><span>Hot towel</span><b>✕</b><span>Burst fade</span><b>✕</b><span>Waves</span><b>✕</b>
+        <span>Skin fade</span><b>✕</b><span>Low taper</span><b>✕</b><span>Line-up</span><b>✕</b><span>Beard sculpt</span><b>✕</b><span>Hot towel</span><b>✕</b><span>Burst fade</span><b>✕</b><span>Waves</span><b>✕</b>
+      </div>
+    </div>
+
+    <!-- ===== #1 MANIFESTO — words sharpen as you scroll ===== -->
+    <section class="line" id="line" data-section="1">
+      <div class="sec-tag"><b>#1</b> The line</div>
+      <p class="sharpen" id="sharpen">
+        Most cuts are finished when the clock says so. Ours are finished when the line is clean, the blend is invisible, and you catch yourself in a window on Awolowo Road and look twice.
+      </p>
+
+      <div class="stats">
+        <div class="stat"><span class="stat__n" data-count="45">0</span><span class="stat__u">min</span><p>Minimum per chair. Never rushed.</p></div>
+        <div class="stat"><span class="stat__n" data-count="0.5" data-dec="1">0</span><span class="stat__u">mm</span><p>Our shortest guard. Then the foil.</p></div>
+        <div class="stat"><span class="stat__n" data-count="12400">0</span><span class="stat__u">+</span><p>Heads that left sharper than they came.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== #2 FADE BUILDER ===== -->
+    <section class="builder" id="builder" data-section="2">
+      <div class="sec-tag sec-tag--dark"><b>#2</b> Build a fade</div>
+      <div class="builder__head">
+        <h2>Design it here.<br /><em>We'll cut it in the chair.</em></h2>
+        <p>Play with height, guard and length. Your cut code goes straight to your barber, so you never have to say "like, a bit shorter on the sides".</p>
+      </div>
+
+      <div class="builder__grid">
+        <div class="builder__stage">
+          <svg class="headsvg" id="headSvg" viewBox="0 0 320 360" role="img" aria-label="Side profile preview of your fade">
+            <defs>
+              <clipPath id="headClip">
+                <path id="headPath" d="M112 360 L112 300 C100 262 72 232 72 172 C72 104 124 62 186 62 C238 62 262 104 260 148 L262 166 C268 178 282 194 278 204 C274 211 264 210 263 214 L265 228 C264 236 259 240 257 246 C253 262 238 268 216 268 C202 268 197 282 197 310 L197 360 Z" />
+              </clipPath>
+              <clipPath id="hairZone">
+                <path id="hairZonePath" d="M0 0 L250 0 L250 116 C232 118 214 126 206 142 L194 200 L178 204 C170 172 132 170 128 200 L118 252 L0 252 Z" />
+              </clipPath>
+              <linearGradient id="fadeGrad" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="240" y2="170">
+                <stop id="fadeLo" offset="0" stop-color="#14110e" stop-opacity="0" />
+                <stop offset="1" stop-color="#14110e" stop-opacity="1" />
+              </linearGradient>
+              <pattern id="curl" width="7" height="7" patternUnits="userSpaceOnUse">
+                <circle cx="3.5" cy="3.5" r="1.6" fill="#2a241e" />
+              </pattern>
+              <mask id="fadeMask">
+                <rect width="320" height="360" fill="url(#fadeMaskGrad)" />
+              </mask>
+              <linearGradient id="fadeMaskGrad" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="240" y2="170">
+                <stop id="maskLo" offset="0" stop-color="#fff" stop-opacity="0" />
+                <stop offset="1" stop-color="#fff" stop-opacity="1" />
+              </linearGradient>
+            </defs>
+
+            <!-- guide lines -->
+            <g class="guides">
+              <line x1="0" y1="240" x2="320" y2="240" id="guideLo" />
+              <line x1="0" y1="170" x2="320" y2="170" id="guideHi" />
+              <text x="6" y="236" id="guideLoTxt">#0</text>
+              <text x="6" y="166" id="guideHiTxt">#4</text>
+            </g>
+
+            <!-- skin -->
+            <path d="M112 360 L112 300 C100 262 72 232 72 172 C72 104 124 62 186 62 C238 62 262 104 260 148 L262 166 C268 178 282 194 278 204 C274 211 264 210 263 214 L265 228 C264 236 259 240 257 246 C253 262 238 268 216 268 C202 268 197 282 197 310 L197 360 Z" class="skin" />
+            <ellipse cx="152" cy="186" rx="13" ry="21" class="ear" />
+            <path d="M146 178 C152 174 158 182 152 190" class="ear-in" />
+            <path d="M236 160 L252 158" class="brow" />
+            <circle cx="244" cy="172" r="2.2" class="eye" />
+
+            <!-- hair: scalp layer + top volume, both faded -->
+            <g id="hairGroup" mask="url(#fadeMask)">
+              <g clip-path="url(#hairZone)">
+                <g clip-path="url(#headClip)">
+                  <rect width="320" height="360" fill="#14110e" />
+                  <rect width="320" height="360" fill="url(#curl)" />
+                </g>
+                <path id="topVol" d="" fill="#14110e" />
+                <path id="topVolTex" d="" fill="url(#curl)" />
+              </g>
+            </g>
+            <path id="lineUp" d="M250 116 C232 118 214 126 206 142 L194 200" class="lineup" />
+          </svg>
+
+          <div class="code" id="cutCode" aria-live="polite">FB · MID · #0→#4 · TOP 3 · LINE-UP</div>
+        </div>
+
+        <form class="controls" id="builderForm" onsubmit="return false">
+          <fieldset>
+            <legend>Fade height</legend>
+            <div class="chips" role="radiogroup">
+              <label><input type="radio" name="height" value="taper" /><span>Taper</span></label>
+              <label><input type="radio" name="height" value="low" /><span>Low</span></label>
+              <label><input type="radio" name="height" value="mid" checked /><span>Mid</span></label>
+              <label><input type="radio" name="height" value="high" /><span>High</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Bottom guard <output id="guardOut">#0 — skin</output></legend>
+            <input type="range" id="guard" min="0" max="3" step="1" value="0" />
+            <div class="ticks"><span>#0</span><span>#½</span><span>#1</span><span>#2</span></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Length on top <output id="topOut">3</output></legend>
+            <input type="range" id="topLen" min="0" max="6" step="1" value="3" />
+            <div class="ticks"><span>Buzz</span><span></span><span></span><span>Crop</span><span></span><span></span><span>Volume</span></div>
+          </fieldset>
+
+          <fieldset class="toggles">
+            <label class="switch"><input type="checkbox" id="lineup" checked /><span></span>Razor line-up</label>
+            <label class="switch"><input type="checkbox" id="beard" /><span></span>Beard sculpt</label>
+          </fieldset>
+
+          <div class="price">
+            <span>Estimate</span>
+            <strong id="price">₦18,000</strong>
+          </div>
+
+          <a href="#book" class="btn btn--ink" id="useCut">
+            <span>Book this exact cut</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11" /></svg>
+          </a>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== #3 BARBERS ===== -->
+    <section class="barbers" id="barbers" data-section="3">
+      <div class="sec-tag"><b>#3</b> Hands</div>
+      <div class="barbers__head">
+        <h2>Four chairs.<br /><em>Four steady hands.</em></h2>
+        <p>Tap a card to see what they're known for.</p>
+      </div>
+
+      <div class="cards">
+        <button class="card" data-barber="Tunde">
+          <span class="card__inner">
+            <span class="card__front">
+              <span class="card__no">01</span>
+              <span class="card__mono">TA</span>
+              <span class="card__name">Tunde <i>"Steady"</i> Adebayo</span>
+              <span class="card__role">Founder · Skin fades</span>
+            </span>
+            <span class="card__back">
+              <span class="card__q">"The fade lives in the last two millimetres."</span>
+              <span class="bars">
+                <span><i>Precision</i><b style="--v:.98"></b></span>
+                <span><i>Speed</i><b style="--v:.62"></b></span>
+                <span><i>Gist</i><b style="--v:.85"></b></span>
+              </span>
+              <span class="card__role">Since 2011 · Ikeja → V.I.</span>
+            </span>
+          </span>
+        </button>
+
+        <button class="card" data-barber="Kelechi">
+          <span class="card__inner">
+            <span class="card__front">
+              <span class="card__no">02</span>
+              <span class="card__mono">KO</span>
+              <span class="card__name">Kelechi <i>"Kels"</i> Obi</span>
+              <span class="card__role">Line-ups · Waves</span>
+            </span>
+            <span class="card__back">
+              <span class="card__q">"A line-up is geometry with feelings."</span>
+              <span class="bars">
+                <span><i>Precision</i><b style="--v:.94"></b></span>
+                <span><i>Speed</i><b style="--v:.8"></b></span>
+                <span><i>Gist</i><b style="--v:.7"></b></span>
+              </span>
+              <span class="card__role">Since 2015 · Enugu-born</span>
+            </span>
+          </span>
+        </button>
+
+        <button class="card" data-barber="Dami">
+          <span class="card__inner">
+            <span class="card__front">
+              <span class="card__no">03</span>
+              <span class="card__mono">DA</span>
+              <span class="card__name">Damilola <i>"Dami"</i> Ade</span>
+              <span class="card__role">Textured crops · Colour</span>
+            </span>
+            <span class="card__back">
+              <span class="card__q">"Your hair already knows what it wants."</span>
+              <span class="bars">
+                <span><i>Precision</i><b style="--v:.88"></b></span>
+                <span><i>Speed</i><b style="--v:.74"></b></span>
+                <span><i>Gist</i><b style="--v:.96"></b></span>
+              </span>
+              <span class="card__role">Since 2017 · Ex-London</span>
+            </span>
+          </span>
+        </button>
+
+        <button class="card" data-barber="Ifeanyi">
+          <span class="card__inner">
+            <span class="card__front">
+              <span class="card__no">04</span>
+              <span class="card__mono">IN</span>
+              <span class="card__name">Ifeanyi <i>"Blade"</i> Nwosu</span>
+              <span class="card__role">Beards · Hot towel shave</span>
+            </span>
+            <span class="card__back">
+              <span class="card__q">"Straight razor, steady breath, no rush."</span>
+              <span class="bars">
+                <span><i>Precision</i><b style="--v:.92"></b></span>
+                <span><i>Speed</i><b style="--v:.55"></b></span>
+                <span><i>Gist</i><b style="--v:.78"></b></span>
+              </span>
+              <span class="card__role">Since 2013 · Shave specialist</span>
+            </span>
+          </span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ===== #4 RITUAL — the blade draws down the page ===== -->
+    <section class="ritual" id="ritual" data-section="4">
+      <div class="sec-tag sec-tag--dark"><b>#4</b> Ritual</div>
+      <h2 class="ritual__title">Forty-five minutes.<br /><em>Five acts.</em></h2>
+
+      <div class="ritual__wrap">
+        <div class="ritual__rail"><div class="ritual__blade" id="ritualBlade"></div></div>
+        <ol class="acts">
+          <li class="act"><span class="act__t">00:00</span><h3>The consult</h3><p>Coffee or zobo. We read your crown, your growth pattern and your cut code before a single clipper comes out.</p></li>
+          <li class="act"><span class="act__t">05:00</span><h3>The map</h3><p>Guide lines get set at the height you chose. We work from the top down, guard by guard.</p></li>
+          <li class="act"><span class="act__t">15:00</span><h3>The blend</h3><p>Lever, flick, repeat. The bit most shops rush is where we spend most of the time.</p></li>
+          <li class="act"><span class="act__t">35:00</span><h3>The line</h3><p>Straight razor, hot lather, one breath per stroke. Forehead, temple, nape.</p></li>
+          <li class="act"><span class="act__t">42:00</span><h3>The reveal</h3><p>Hot towel, cool tonic, the two-mirror check. You don't pay until you love it.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== #5 BOOK — the ticket ===== -->
+    <section class="book" id="book" data-section="5">
+      <div class="sec-tag"><b>#5</b> The chair</div>
+      <div class="book__grid">
+        <div class="book__form">
+          <h2>Your chair<br /><em>is waiting.</em></h2>
+
+          <form id="bookForm" novalidate>
+            <label class="field">
+              <span>Your name</span>
+              <input type="text" id="bName" placeholder="e.g. Seun" autocomplete="name" required />
+            </label>
+
+            <div class="field">
+              <span>Barber</span>
+              <div class="chips chips--light" id="bBarber">
+                <label><input type="radio" name="barber" value="Any" checked /><span>Any</span></label>
+                <label><input type="radio" name="barber" value="Tunde" /><span>Tunde</span></label>
+                <label><input type="radio" name="barber" value="Kelechi" /><span>Kels</span></label>
+                <label><input type="radio" name="barber" value="Dami" /><span>Dami</span></label>
+                <label><input type="radio" name="barber" value="Ifeanyi" /><span>Ifeanyi</span></label>
+              </div>
+            </div>
+
+            <div class="field">
+              <span>Day</span>
+              <div class="days" id="bDays"></div>
+            </div>
+
+            <div class="field">
+              <span>Time</span>
+              <div class="chips chips--light chips--time" id="bTimes"></div>
+            </div>
+
+            <button type="submit" class="btn btn--blood btn--wide">
+              <span>Print my ticket</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11" /></svg>
+            </button>
+          </form>
+        </div>
+
+        <div class="ticket-wrap">
+          <div class="ticket" id="ticket">
+            <div class="ticket__top">
+              <span class="ticket__brand">FALZ / BLADE</span>
+              <span class="ticket__no" id="tNo">Nº 0000</span>
+            </div>
+            <div class="ticket__row"><span>Guest</span><b id="tName">—</b></div>
+            <div class="ticket__row"><span>Cut code</span><b id="tCode">FB · MID · #0→#4 · TOP 3 · LINE-UP</b></div>
+            <div class="ticket__row"><span>Barber</span><b id="tBarber">Any</b></div>
+            <div class="ticket__row ticket__row--split">
+              <div><span>Day</span><b id="tDay">—</b></div>
+              <div><span>Time</span><b id="tTime">—</b></div>
+            </div>
+            <div class="ticket__row"><span>Estimate</span><b id="tPrice">₦18,000</b></div>
+            <div class="ticket__perf"></div>
+            <div class="ticket__stub">
+              <div class="barcode" aria-hidden="true"></div>
+              <span>Show this at the door. Arrive 5 minutes early.</span>
+            </div>
+            <div class="ticket__stamp" id="tStamp">Booked</div>
+          </div>
+          <p class="ticket__note" id="tNote">Your ticket updates as you go.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="foot">
+    <div class="foot__big" aria-hidden="true">
+      <div class="foot__row"><span>STAY SHARP</span><span>STAY SHARP</span><span>STAY SHARP</span><span>STAY SHARP</span></div>
+    </div>
+    <div class="foot__grid">
+      <div>
+        <span class="foot__k">Find us</span>
+        <p>12 Akin Adesola Street<br />Victoria Island, Lagos</p>
+      </div>
+      <div>
+        <span class="foot__k">Hours</span>
+        <p>Mon – Sat · 10:00 – 20:00<br />Sun · 12:00 – 18:00</p>
+      </div>
+      <div>
+        <span class="foot__k">Follow</span>
+        <p><a href="#">Instagram</a> · <a href="#">TikTok</a> · <a href="#">WhatsApp</a></p>
+      </div>
+      <div>
+        <span class="foot__k">©</span>
+        <p>Falz Blade Studio<br />Cut in Lagos.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
