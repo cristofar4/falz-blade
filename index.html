@@ -3,419 +3,272 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FORM &amp; FADE · Modern Barber Studio, Lagos</title>
-  <meta name="description" content="FORM &amp; FADE is a modern barber studio in Victoria Island, Lagos. Personal cuts, precise craft, and a space to make time for yourself." />
-  <meta name="theme-color" content="#E5F1EC" />
+  <title>MONROE · Modern Grooming</title>
+  <meta name="description" content="MONROE is a modern grooming studio in Lagos. Signature tapers, texture crops and classic cuts, made with an uncommon standard." />
+  <meta name="theme-color" content="#EAE7E1" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="assets/img/hero.jpg" />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="assets/media/studio-1600.webp" imagesrcset="assets/media/studio-960.webp 960w, assets/media/studio-1600.webp 1600w, assets/media/studio-2400.webp 2400w" imagesizes="(max-width: 860px) 100vw, 84vw" />
+  <link rel="stylesheet" href="css/monroe.css" />
   <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <!-- context cursor (fine pointers only) -->
-  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__label"></span></div>
-
-  <!-- ================= HEADER ================= -->
-  <header class="header" id="header">
-    <a href="#studio" class="wordmark" aria-label="FORM and FADE, back to top">
-      <span>Form</span><span><i>&amp;</i> Fade</span>
-    </a>
-
-    <nav class="lens" id="lens" aria-label="Primary">
-      <!-- collapsed face: progress ring, section index, current label -->
-      <button class="lens__face" id="lensFace" aria-expanded="false" aria-controls="sheet">
-        <span class="lens__ring" aria-hidden="true">
-          <svg viewBox="0 0 44 44"><circle class="lens__track" cx="22" cy="22" r="19" /><circle class="lens__progress" id="lensProgress" cx="22" cy="22" r="19" /></svg>
-          <b id="lensIndex">01</b>
+  <!-- ===================== NAVIGATION ===================== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="brand" href="#top" aria-label="MONROE Modern Grooming, back to top">
+        <span class="brand__mono" aria-hidden="true">M</span>
+        <span class="brand__rule" aria-hidden="true"></span>
+        <span class="brand__text">
+          <span class="brand__name">MONROE</span>
+          <span class="brand__sub">Modern Grooming</span>
         </span>
-        <span class="lens__now" aria-hidden="true"><span class="lens__now-inner" id="lensNow">Studio</span></span>
-        <span class="sr" id="lensFaceLabel">Open menu</span>
-      </button>
-
-      <!-- expanded links (desktop hover / focus) -->
-      <ul class="lens__links" id="lensLinks">
-        <li><a href="#studio" data-nav="studio">Studio</a></li>
-        <li><a href="#cuts" data-nav="cuts">Cuts</a></li>
-        <li><a href="#people" data-nav="people">People</a></li>
-      </ul>
-
-      <a href="#book" class="lens__book" data-nav="book">
-        <span>Book</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
       </a>
-    </nav>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#studio" data-nav="studio">Studio</a>
+        <a href="#cuts" data-nav="cuts">The cuts</a>
+        <a href="#people" data-nav="people">Our people</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a class="cta" href="#book" data-nav="book">
+          <span class="cta__label"><span class="cta__long">Book appointment</span><span class="cta__short">Book</span></span>
+          <span class="cta__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" /></svg></span>
+        </a>
+        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+          <span aria-hidden="true"><i></i><i></i></span>
+        </button>
+      </div>
+    </div>
   </header>
 
-  <!-- full screen menu sheet (small screens) -->
-  <div class="sheet" id="sheet" aria-hidden="true">
-    <div class="sheet__inner">
-      <p class="eyebrow eyebrow--light">Menu</p>
-      <ol class="sheet__links">
-        <li><a href="#studio" data-nav="studio"><span class="sheet__n">01</span><span class="sheet__t">Studio</span><img src="assets/img/hero.jpg" alt="" loading="lazy" /></a></li>
-        <li><a href="#cuts" data-nav="cuts"><span class="sheet__n">02</span><span class="sheet__t">Cuts</span><img src="assets/img/cut-taper.jpg" alt="" loading="lazy" /></a></li>
-        <li><a href="#ritual" data-nav="ritual"><span class="sheet__n">03</span><span class="sheet__t">Ritual</span><img src="assets/img/andre-3.jpg" alt="" loading="lazy" /></a></li>
-        <li><a href="#people" data-nav="people"><span class="sheet__n">04</span><span class="sheet__t">People</span><img src="assets/img/team.jpg" alt="" loading="lazy" /></a></li>
-        <li><a href="#book" data-nav="book"><span class="sheet__n">05</span><span class="sheet__t"><em>Book a chair</em></span><img src="assets/img/miles-1.jpg" alt="" loading="lazy" /></a></li>
+  <!-- mobile menu -->
+  <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+    <div class="menu__inner">
+      <ol class="menu__links">
+        <li><a href="#studio"><span>01</span>Studio</a></li>
+        <li><a href="#cuts"><span>02</span>The cuts</a></li>
+        <li><a href="#process"><span>03</span>The process</a></li>
+        <li><a href="#people"><span>04</span>Our people</a></li>
+        <li><a href="#book"><span>05</span><em>Book appointment</em></a></li>
       </ol>
-      <div class="sheet__foot">
-        <p><em>Lagos</em><br />12 Akin Adesola Street, Victoria Island</p>
-        <p><em>Hours</em><br />Mon to Sat 10:00 to 20:00 · Sun 12:00 to 18:00</p>
+      <div class="menu__foot">
+        <div><p class="label">Opening hours</p><ul class="hours" data-hours></ul></div>
+        <div><p class="label">Location</p><p data-location></p></div>
       </div>
     </div>
   </div>
 
   <main id="main">
-
-    <!-- ================= HERO ================= -->
-    <section class="hero" id="studio" data-section="studio" data-index="01" data-label="Studio" aria-labelledby="heroTitle">
-      <p class="eyebrow hero__eyebrow reveal">The modern barber studio <span aria-hidden="true">/</span> Lagos</p>
-      <h1 class="hero__title" id="heroTitle">
-        <span class="line"><span class="line__in">Good hair.</span></span>
-        <span class="line"><em class="line__in">Better presence.</em></span>
-      </h1>
-      <p class="hero__lede reveal">Personal cuts. Precise craft. A space to make time for yourself.</p>
-
-      <div class="hero__stage reveal">
-        <p class="side-label" aria-hidden="true"><span>01</span> The studio</p>
-
-        <figure class="hero__media" id="heroMedia">
-          <img src="assets/img/hero.jpg" alt="A barber in a cream sweater shaping a client's textured curls with clippers inside the studio" class="hero__poster" width="2000" height="2660" fetchpriority="high" />
-          <!-- A video is injected here when CONFIG.heroVideo is set in script.js -->
-
-          <div class="clock" aria-live="off">
-            <span class="clock__dot" id="clockDot" aria-hidden="true"></span>
-            <div>
-              <p class="clock__time"><span id="clockTime">00:00</span> <small>Lagos</small></p>
-              <p class="clock__state" id="clockState">Checking the chairs</p>
-            </div>
-          </div>
-
-          <button class="hero__motion" id="heroMotion" hidden aria-pressed="false">
-            <span class="hero__motion-icon" aria-hidden="true"></span>
-            <span class="hero__motion-text">Pause film</span>
-          </button>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="studio" data-section="studio" aria-labelledby="heroTitle">
+      <span id="top" class="anchor"></span>
+      <div class="hero__stage">
+        <figure class="hero__studio" id="heroStudio">
+          <img class="hero__img"
+               src="assets/media/studio-1600.webp"
+               srcset="assets/media/studio-960.webp 960w, assets/media/studio-1600.webp 1600w, assets/media/studio-2400.webp 2400w"
+               sizes="(max-width: 860px) 100vw, 84vw"
+               alt="A quiet, warmly lit barber studio with round mirrors, leather chairs and a long marble counter"
+               width="2400" height="1472" fetchpriority="high" />
+          <!-- A video is added here when MONROE.heroVideo.src is set in js/data.js -->
+          <div class="hero__shade" aria-hidden="true"></div>
         </figure>
 
-        <div class="hero__notch">
-          <p class="hero__caption"><em>Good conversation.</em> Exceptional cuts.</p>
-          <a href="#book" class="btn btn--cobalt">
-            <span>Book a chair</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
-          </a>
+        <div class="hero__copy">
+          <h1 id="heroTitle" class="hero__title">
+            <span class="ln"><span>An everyday ritual.</span></span>
+            <span class="ln"><span>An uncommon standard.</span></span>
+          </h1>
+          <a class="textlink textlink--light hero__link" href="#cuts">Discover your next look <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg></a>
         </div>
-      </div>
 
-      <div class="ticker" aria-hidden="true">
-        <div class="ticker__row">
-          <span>Skin fades</span><i></i><span><em>Textured tops</em></span><i></i><span>Razor lines</span><i></i><span><em>Beard sculpting</em></span><i></i><span>Hot towel finish</span><i></i><span><em>Classic side parts</em></span><i></i>
-          <span>Skin fades</span><i></i><span><em>Textured tops</em></span><i></i><span>Razor lines</span><i></i><span><em>Beard sculpting</em></span><i></i><span>Hot towel finish</span><i></i><span><em>Classic side parts</em></span><i></i>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= CUT SHOWCASE ================= -->
-    <section class="showcase" id="cuts" data-section="cuts" data-index="02" data-label="Cuts" data-dark aria-labelledby="cutsTitle">
-      <div class="showcase__numeral" aria-hidden="true"><span id="cutNumeral">01</span></div>
-
-      <div class="showcase__inner">
-        <header class="showcase__head">
-          <p class="eyebrow eyebrow--light">02 <span aria-hidden="true">/</span> The cuts</p>
-          <h2 id="cutsTitle">Your style. <em>In focus.</em></h2>
-        </header>
-
-        <div class="showcase__body" id="showcase">
-          <div class="showcase__media" id="cutMedia" data-cursor="Swipe">
-            <img class="showcase__img is-active" data-cut="taper" src="assets/img/cut-taper.jpg" alt="Close view of a sharp taper with a hard part, styled back with volume" style="--pos: 50% 30%" />
-            <img class="showcase__img" data-cut="texture" src="assets/img/cut-texture.jpg" alt="Textured curly top with a low fade, being refined with clippers" style="--pos: 60% 72%" loading="lazy" />
-            <img class="showcase__img" data-cut="classic" src="assets/img/cut-classic.jpg" alt="A barber finishing a classic tapered cut with hold spray" style="--pos: 50% 40%" loading="lazy" />
-            <div class="showcase__veil" aria-hidden="true"></div>
+        <figure class="hero__portrait reveal">
+          <div class="hero__portrait-frame">
+            <img src="assets/media/portrait-800.webp"
+                 srcset="assets/media/portrait-480.webp 480w, assets/media/portrait-800.webp 800w, assets/media/portrait-1200.webp 1200w"
+                 sizes="(max-width: 860px) 42vw, 24vw"
+                 alt="Portrait of a client in profile light, with a crisp short cut and sharp line"
+                 width="1200" height="1800" />
           </div>
+          <figcaption class="label">The signature <span aria-hidden="true">/</span> 45 min</figcaption>
+        </figure>
+      </div>
+    </section>
 
-          <!-- spec card -->
-          <article class="spec" aria-live="polite">
-            <header class="spec__head">
-              <span class="spec__count"><span id="cutIndex">01</span> / 03</span>
-              <span class="spec__tag" id="cutTag">Most requested</span>
-            </header>
-            <div class="spec__text" id="cutText">
-              <h3 id="cutName">The Taper</h3>
-              <p id="cutDesc">A gradual fade that cleans the neckline and sides while keeping your shape soft and natural. Finished with a razor line.</p>
-            </div>
-            <dl class="spec__meta">
-              <div><dt>Time</dt><dd id="cutTime">45 min</dd></div>
-              <div><dt>From</dt><dd id="cutPrice">₦25,000</dd></div>
-              <div><dt>Refresh</dt><dd id="cutRefresh">3 weeks</dd></div>
-            </dl>
-            <a href="#book" class="btn btn--cobalt btn--block" id="bookCut">
-              <span>Book this cut</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
-            </a>
-          </article>
+    <!-- ===================== CUT LIBRARY ===================== -->
+    <section class="library" id="cuts" data-section="cuts" aria-labelledby="libTitle">
+      <div class="wrap library__head">
+        <div>
+          <p class="label reveal">01 <span aria-hidden="true">/</span> The cut library</p>
+          <h2 id="libTitle" class="library__title reveal">Less ordinary.<br />More you.</h2>
         </div>
+        <p class="library__intro reveal">A curated library of modern classics and contemporary shapes. Refined cuts that fit your look, your rhythm, your next move.</p>
+      </div>
 
-        <!-- the scale: understated tabs with a sliding thumb and autoplay progress -->
-        <div class="scale">
-          <div class="scale__track" aria-hidden="true"><i class="scale__thumb" id="scaleThumb"></i></div>
-          <div class="scale__tabs" role="tablist" aria-label="Haircut styles" id="cutTabs">
-            <button role="tab" id="tab-taper" aria-selected="true" aria-controls="showcase" data-cut="taper"><span class="scale__n">01</span>Taper<i class="scale__bar" aria-hidden="true"></i></button>
-            <button role="tab" id="tab-texture" aria-selected="false" aria-controls="showcase" data-cut="texture" tabindex="-1"><span class="scale__n">02</span>Texture<i class="scale__bar" aria-hidden="true"></i></button>
-            <button role="tab" id="tab-classic" aria-selected="false" aria-controls="showcase" data-cut="classic" tabindex="-1"><span class="scale__n">03</span>Classic<i class="scale__bar" aria-hidden="true"></i></button>
-          </div>
-          <div class="scale__ctrl">
-            <button class="round" id="cutPlay" aria-pressed="false" aria-label="Pause autoplay"><span class="round__pp" aria-hidden="true"></span></button>
-            <button class="round" id="cutPrev" aria-label="Previous style"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" /></svg></button>
-            <button class="round" id="cutNext" aria-label="Next style"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></button>
-          </div>
+      <div class="wrap">
+        <div class="gallery reveal" id="gallery" role="group" aria-roledescription="gallery" aria-label="Haircut styles">
+          <div class="gallery__track" id="galleryTrack"><!-- rendered from data.js --></div>
+        </div>
+        <div class="gallery__nav" aria-hidden="false">
+          <p class="gallery__count"><span id="galleryIndex">01</span> / <span id="galleryTotal">03</span></p>
+          <div class="gallery__dots" id="galleryDots" role="group" aria-label="Choose a style"></div>
         </div>
       </div>
     </section>
 
-    <!-- ================= BEFORE / AFTER ================= -->
-    <section class="craft" id="craft" data-section="cuts" data-index="02" data-label="Cuts" aria-labelledby="craftTitle">
-      <div class="craft__head">
-        <p class="eyebrow">02 <span aria-hidden="true">/</span> The result</p>
-        <h2 id="craftTitle" class="reveal">Craft you <em>can see.</em></h2>
-        <p class="craft__lede reveal">Drag the divider through the appointment. Same chair, same light, forty five minutes apart.</p>
+    <!-- ===================== PROCESS ===================== -->
+    <section class="process" id="process" data-section="cuts" aria-labelledby="processTitle">
+      <div class="process__media" id="processMedia" aria-hidden="true"><!-- images rendered from data.js --></div>
+      <div class="process__shade" aria-hidden="true"></div>
+      <div class="wrap process__inner">
+        <h2 id="processTitle" class="process__title reveal">Time well spent.</h2>
+        <ol class="steps" id="steps"><!-- rendered from data.js --></ol>
       </div>
+    </section>
 
-      <!-- Swap these sources for a matching before and after pair of the same client. -->
-      <div class="compare reveal" id="compare" data-cursor="Drag"
-           data-before="assets/img/compare.jpg"
-           data-after="assets/img/compare.jpg"
-           data-before-alt="Client before the cut, with grown out sides"
-           data-after-alt="Client after the cut, with a clean skin fade and textured top"
-           style="--pos: 50%">
-        <img class="compare__img compare__img--after" alt="" />
-        <div class="compare__before"><img class="compare__img compare__img--before" alt="" /></div>
-        <span class="compare__tag compare__tag--before" aria-hidden="true">Before</span>
-        <span class="compare__tag compare__tag--after" aria-hidden="true">After</span>
-        <div class="compare__handle" aria-hidden="true">
-          <span class="compare__knob"><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" /></svg></span>
-          <span class="compare__min" id="compareMin">Minute 23</span>
+    <!-- ===================== PEOPLE ===================== -->
+    <section class="people" id="people" data-section="people" aria-labelledby="peopleTitle">
+      <div class="wrap people__head">
+        <div>
+          <p class="label reveal">02 <span aria-hidden="true">/</span> Our people</p>
+          <h2 id="peopleTitle" class="people__title reveal">Steady hands,<br /><em>quiet confidence.</em></h2>
         </div>
-        <input class="compare__range" type="range" min="0" max="100" value="50" step="0.5" aria-label="Before and after comparison. Use the arrow keys to reveal more of either photo." />
+        <p class="people__intro reveal">Two barbers, one standard. Every appointment is cut start to finish by the same person.</p>
       </div>
-      <div class="compare__scale" aria-hidden="true"><span>Minute 45</span><span>Minute 0</span></div>
+      <div class="wrap">
+        <figure class="people__photo reveal" id="teamPhoto"></figure>
+        <ul class="roster" id="roster"><!-- rendered from data.js --></ul>
+      </div>
     </section>
 
-    <!-- ================= RITUAL (horizontal) ================= -->
-    <section class="ritual" id="ritual" data-section="ritual" data-index="03" data-label="Ritual" data-dark aria-labelledby="ritualTitle">
-      <div class="ritual__pin">
-        <header class="ritual__head">
-          <p class="eyebrow eyebrow--light">03 <span aria-hidden="true">/</span> The ritual</p>
-          <h2 id="ritualTitle">Forty five minutes, <em>five movements.</em></h2>
-          <div class="ritual__progress" aria-hidden="true"><i id="ritualBar"></i></div>
-        </header>
-        <div class="ritual__viewport" id="ritualViewport" tabindex="0" aria-label="The ritual, five steps. Scroll to move through them.">
-          <ol class="ritual__track" id="ritualTrack">
-            <li class="move">
-              <figure class="move__img"><img src="assets/img/team.jpg" alt="Barber studying a client's hair before the cut" loading="lazy" style="--pos: 35% 30%" /></figure>
-              <div class="move__txt"><span class="move__t">00:00</span><h3><em>The</em> consult</h3><p>Coffee or zobo, then a proper conversation about how you wear your hair, day to day.</p></div>
-            </li>
-            <li class="move move--alt">
-              <figure class="move__img"><img src="assets/img/compare.jpg" alt="Barber lifting hair with a comb while cutting" loading="lazy" style="--pos: 45% 50%" /></figure>
-              <div class="move__txt"><span class="move__t">05:00</span><h3><em>The</em> shape</h3><p>We set your guide lines and build the silhouette from the top down.</p></div>
-            </li>
-            <li class="move">
-              <figure class="move__img"><img src="assets/img/andre-2.jpg" alt="Barber detailing a fade with a straight razor" loading="lazy" style="--pos: 50% 40%" /></figure>
-              <div class="move__txt"><span class="move__t">20:00</span><h3><em>The</em> blend</h3><p>The part most studios rush. We take our time until the fade disappears into itself.</p></div>
-            </li>
-            <li class="move move--alt">
-              <figure class="move__img"><img src="assets/img/andre-3.jpg" alt="Beard being lathered with a brush" loading="lazy" style="--pos: 50% 40%" /></figure>
-              <div class="move__txt"><span class="move__t">35:00</span><h3><em>The</em> line</h3><p>Hot lather and a straight razor for the edges: forehead, temple, nape.</p></div>
-            </li>
-            <li class="move">
-              <figure class="move__img"><img src="assets/img/miles-1.jpg" alt="Client being blow dried and styled at the end of the cut" loading="lazy" style="--pos: 50% 30%" /></figure>
-              <div class="move__txt"><span class="move__t">42:00</span><h3><em>The</em> reveal</h3><p>Hot towel, cool tonic, the two mirror check. You only leave when you love it.</p></div>
-            </li>
-          </ol>
+    <!-- ===================== BOOKING ===================== -->
+    <section class="book" id="book" data-section="book" aria-labelledby="bookTitle">
+      <div class="wrap book__grid">
+        <div class="book__head">
+          <p class="label reveal">03 <span aria-hidden="true">/</span> Reserve</p>
+          <h2 id="bookTitle" class="book__title reveal">Your next chapter,<br />in the chair.</h2>
+          <p class="book__note reveal">Times follow our opening hours. The studio confirms every request personally.</p>
         </div>
-      </div>
-    </section>
 
-    <!-- ================= PEOPLE ================= -->
-    <section class="people" id="people" data-section="people" data-index="04" data-label="People" aria-labelledby="peopleTitle">
-      <div class="people__head">
-        <p class="eyebrow">04 <span aria-hidden="true">/</span> People</p>
-        <h2 id="peopleTitle" class="reveal">The people behind <em>the precision.</em></h2>
-      </div>
-
-      <figure class="people__pano reveal">
-        <img src="assets/img/team.jpg" alt="Two barbers at work in the studio, one shaping a client's hair with scissors while the other looks on" loading="lazy" />
-        <figcaption>
-          <q>The details make the difference.</q>
-          <span>Miles <span aria-hidden="true">/</span> <em>Senior barber</em></span>
-        </figcaption>
-      </figure>
-
-      <ul class="roster" id="roster">
-        <li class="roster__row reveal" data-preview="assets/img/miles-3.jpg">
-          <span class="roster__mono" aria-hidden="true">M</span>
-          <span class="roster__name">Miles</span>
-          <span class="roster__role"><em>Senior barber</em> · 11 years</span>
-          <span class="roster__spec">Skin fades, textured tops, curl definition</span>
-          <button class="roster__cta" data-barber="miles" aria-haspopup="dialog">View work <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg></button>
-        </li>
-        <li class="roster__row reveal" data-preview="assets/img/andre-1.jpg">
-          <span class="roster__mono" aria-hidden="true">A</span>
-          <span class="roster__name">Andre</span>
-          <span class="roster__role"><em>Master barber</em> · 14 years</span>
-          <span class="roster__spec">Classic cuts, scissor work, beard sculpting</span>
-          <button class="roster__cta" data-barber="andre" aria-haspopup="dialog">View work <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg></button>
-        </li>
-      </ul>
-      <div class="peek" aria-hidden="true"><img alt="" /></div>
-    </section>
-
-    <!-- ================= BOOKING ================= -->
-    <section class="book" id="book" data-section="book" data-index="05" data-label="Book" aria-labelledby="bookTitle">
-      <div class="book__inner">
-        <header class="book__head">
-          <p class="eyebrow eyebrow--light">05 <span aria-hidden="true">/</span> Booking</p>
-          <h2 id="bookTitle">Your chair <em>is waiting.</em></h2>
-          <p class="book__lede">Five quick choices. You only pay in the studio.</p>
-        </header>
-
-        <form class="bform" id="bookForm" novalidate>
-          <!-- step rail -->
-          <ol class="steps" aria-label="Booking progress">
-            <li data-step="service"><a href="#gService"><i></i><span>Cut</span></a></li>
-            <li data-step="barber"><a href="#gBarber"><i></i><span>Barber</span></a></li>
-            <li data-step="date"><a href="#gDate"><i></i><span>Day</span></a></li>
-            <li data-step="time"><a href="#gTime"><i></i><span>Time</span></a></li>
-            <li data-step="details"><a href="#gDetails"><i></i><span>You</span></a></li>
-          </ol>
-
-          <div class="bform__fields">
-            <fieldset class="group" id="gService">
-              <legend><span>01</span> Choose your cut</legend>
-              <div class="stubs" id="serviceOptions"></div>
-              <label class="addon">
-                <input type="checkbox" id="addonTowel" />
-                <span class="addon__box" aria-hidden="true"></span>
-                <span>Add a hot towel finish</span>
-                <span class="addon__price">+ ₦5,000</span>
-              </label>
-              <p class="err" id="errService"></p>
-            </fieldset>
-
-            <fieldset class="group" id="gBarber">
-              <legend><span>02</span> Choose your barber</legend>
-              <div class="barbers" id="barberOptions">
-                <label class="bcard"><input type="radio" name="barber" value="any" /><span class="bcard__body"><span class="bcard__mono" aria-hidden="true">✦</span><b>No preference</b><small>First available chair</small></span></label>
-                <label class="bcard"><input type="radio" name="barber" value="miles" /><span class="bcard__body"><span class="bcard__mono" aria-hidden="true">M</span><b>Miles</b><small>Senior barber</small></span></label>
-                <label class="bcard"><input type="radio" name="barber" value="andre" /><span class="bcard__body"><span class="bcard__mono" aria-hidden="true">A</span><b>Andre</b><small>Master barber</small></span></label>
+        <div class="book__panel">
+          <form class="bform" id="bookForm" novalidate>
+            <div class="bform__row">
+              <div class="field" data-field="service">
+                <label for="fService" class="label">Service</label>
+                <div class="select"><select id="fService" name="service" required><option value="">Choose a service</option></select></div>
+                <p class="field__err" id="eService"></p>
               </div>
-              <p class="err" id="errBarber"></p>
-            </fieldset>
-
-            <fieldset class="group" id="gDate">
-              <legend><span>03</span> Choose a day</legend>
-              <div class="days" id="dayStrip"></div>
-              <div class="days__more">
-                <label for="bDate">Another date</label>
-                <input type="date" id="bDate" />
+              <div class="field" data-field="barber">
+                <label for="fBarber" class="label">Barber</label>
+                <div class="select"><select id="fBarber" name="barber" required><option value="">Choose a barber</option><option value="any">Any barber</option></select></div>
+                <p class="field__err" id="eBarber"></p>
               </div>
-              <p class="err" id="errDate"></p>
-            </fieldset>
-
-            <fieldset class="group" id="gTime">
-              <legend><span>04</span> Choose a time</legend>
-              <div class="slots" id="slots"><p class="hint">Pick a day to see open times.</p></div>
-              <p class="err" id="errTime"></p>
-            </fieldset>
-
-            <fieldset class="group" id="gDetails">
-              <legend><span>05</span> Your details</legend>
-              <div class="inputs">
-                <label class="input"><span>Full name</span><input type="text" id="bName" autocomplete="name" required /></label>
-                <label class="input"><span>Phone</span><input type="tel" id="bPhone" autocomplete="tel" inputmode="tel" placeholder="0803 000 0000" required /></label>
+              <div class="field" data-field="date">
+                <label for="fDate" class="label">Day</label>
+                <input type="date" id="fDate" name="date" required class="input" />
+                <p class="field__err" id="eDate"></p>
               </div>
-              <p class="err" id="errDetails"></p>
-            </fieldset>
-          </div>
-
-          <!-- receipt -->
-          <aside class="receipt" id="summary" aria-labelledby="summaryTitle">
-            <div class="receipt__paper">
-              <div class="receipt__view" id="summaryView">
-                <header class="receipt__head">
-                  <span class="receipt__brand">Form <i>&amp;</i> Fade</span>
-                  <span class="receipt__no">Chair ticket</span>
-                </header>
-                <h3 id="summaryTitle" class="sr">Your appointment</h3>
-                <dl>
-                  <div><dt>Cut</dt><dd id="sService">Not chosen</dd></div>
-                  <div><dt>Barber</dt><dd id="sBarber">Not chosen</dd></div>
-                  <div><dt>Day</dt><dd id="sDate">Not chosen</dd></div>
-                  <div><dt>Time</dt><dd id="sTime">Not chosen</dd></div>
-                  <div><dt>Duration</dt><dd id="sDuration">0 min</dd></div>
-                </dl>
-                <div class="receipt__perf" aria-hidden="true"></div>
-                <div class="receipt__total"><span>Total</span><strong id="sTotal">₦0</strong></div>
-                <button type="submit" class="btn btn--petrol btn--block"><span>Confirm booking</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg></button>
-                <p class="receipt__note" id="formStatus" role="status" aria-live="polite">Free cancellation up to 4 hours before.</p>
-              </div>
-
-              <div class="receipt__done" id="summaryDone" hidden tabindex="-1">
-                <span class="stamp" aria-hidden="true">Booked</span>
-                <p class="eyebrow">Confirmed</p>
-                <h3>See you soon, <em id="dName">friend</em>.</h3>
-                <p class="receipt__ref">Reference <b id="dRef">FF0000</b></p>
-                <dl id="dList"></dl>
-                <div class="receipt__actions">
-                  <button type="button" class="btn btn--petrol btn--block" id="addCal"><span>Add to calendar</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg></button>
-                  <a class="btn btn--ghost btn--block" id="waLink" hidden target="_blank" rel="noopener"><span>Send on WhatsApp</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg></a>
-                  <button type="button" class="textlink" id="bookAgain">Make another booking</button>
-                </div>
+              <div class="field" data-field="time">
+                <label for="fTime" class="label">Time</label>
+                <div class="select"><select id="fTime" name="time" required disabled><option value="">Select a day first</option></select></div>
+                <p class="field__err" id="eTime"></p>
               </div>
             </div>
-          </aside>
-        </form>
+            <div class="bform__row bform__row--two">
+              <div class="field" data-field="name">
+                <label for="fName" class="label">Your name</label>
+                <input type="text" id="fName" name="name" autocomplete="name" required class="input" />
+                <p class="field__err" id="eName"></p>
+              </div>
+              <div class="field" data-field="phone">
+                <label for="fPhone" class="label">Phone</label>
+                <input type="tel" id="fPhone" name="phone" autocomplete="tel" inputmode="tel" required class="input" />
+                <p class="field__err" id="ePhone"></p>
+              </div>
+            </div>
+
+            <div class="bform__foot">
+              <dl class="tally" aria-live="polite">
+                <div><dt class="label">Duration</dt><dd id="tDuration">0 min</dd></div>
+                <div><dt class="label">Total</dt><dd id="tTotal">₦0</dd></div>
+              </dl>
+              <button type="submit" class="cta cta--lg">
+                <span class="cta__label">Reserve your visit</span>
+                <span class="cta__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" /></svg></span>
+              </button>
+            </div>
+            <p class="bform__status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="confirm" id="confirm" hidden tabindex="-1" aria-labelledby="confirmTitle">
+            <p class="confirm__flag label">Demo confirmation</p>
+            <h3 id="confirmTitle" class="confirm__title">Thank you, <em id="cName"></em>.</h3>
+            <p class="confirm__warn"><strong>No appointment has been submitted.</strong> This website is not connected to a booking system yet, so nothing was sent to the studio. Below is what would be requested.</p>
+            <dl class="confirm__list" id="cList"></dl>
+            <button type="button" class="textlink" id="restart">Start a new request</button>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- ================= FOOTER ================= -->
+  <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
-    <div class="footer__grid">
-      <div class="footer__col"><p class="footer__k"><em>Opening hours</em></p><p>Mon to Sat, 10:00 to 20:00<br />Sun, 12:00 to 18:00</p></div>
-      <div class="footer__col"><p class="footer__k"><em>Lagos</em></p><p>12 Akin Adesola Street,<br />Victoria Island, Lagos.</p></div>
-      <div class="footer__col"><p class="footer__k"><em>Say hello</em></p><p>hello@formandfade.ng<br />0803 000 0000</p></div>
-      <ul class="footer__social" aria-label="Social media">
-        <li><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" class="fill" /></svg></a></li>
-        <li><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10v8M6 6v.01M10 18v-8M10 13.5c0-2 1.5-3.5 3.5-3.5S17 11.5 17 13.5V18" /></svg></a></li>
-        <li><a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5M14 4c.5 2.5 2.5 4 5 4" /></svg></a></li>
-      </ul>
+    <div class="wrap footer__inner">
+      <a class="brand brand--light" href="#top" aria-label="MONROE Modern Grooming, back to top">
+        <span class="brand__mono" aria-hidden="true">M</span>
+        <span class="brand__rule" aria-hidden="true"></span>
+        <span class="brand__text"><span class="brand__name">MONROE</span><span class="brand__sub">Modern Grooming</span></span>
+      </a>
+      <span class="footer__line" aria-hidden="true"></span>
+      <div class="footer__col">
+        <p class="label">Opening hours</p>
+        <ul class="hours" data-hours></ul>
+      </div>
+      <div class="footer__col">
+        <p class="label">Location</p>
+        <p data-location></p>
+        <p data-contact></p>
+      </div>
+      <ul class="footer__social" id="social" aria-label="Social media"></ul>
     </div>
-    <a href="#studio" class="footer__mark" aria-label="FORM and FADE, back to top"><span>Form</span> <i>&amp;</i> <span>Fade</span></a>
-    <p class="footer__base"><span>© <span id="year">2026</span> FORM &amp; FADE Studio</span><span>Cut in Lagos</span></p>
+    <div class="wrap footer__base">
+      <p>© <span id="year"></span> MONROE Modern Grooming</p>
+      <a href="#top" class="textlink textlink--light">Back to top</a>
+    </div>
   </footer>
 
-  <!-- ================= PORTFOLIO DRAWER ================= -->
+  <!-- ===================== PORTFOLIO OVERLAY ===================== -->
   <dialog class="folio" id="folio" aria-labelledby="folioName">
-    <div class="folio__wrap">
+    <div class="folio__inner">
       <header class="folio__head">
         <div>
-          <p class="eyebrow eyebrow--light" id="folioRole">Senior barber</p>
-          <h2 id="folioName">Miles</h2>
+          <p class="label" id="folioRole"></p>
+          <h2 class="folio__name" id="folioName"></h2>
         </div>
         <button class="folio__close" id="folioClose" aria-label="Close portfolio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg></button>
       </header>
-      <p class="folio__bio" id="folioBio"></p>
-      <dl class="folio__stats" id="folioStats"></dl>
-      <div class="folio__strip" id="folioStrip" tabindex="0" aria-label="Portfolio photos, scroll horizontally"></div>
-      <footer class="folio__foot">
-        <p class="folio__spec" id="folioSpec"></p>
-        <button class="btn btn--cobalt" id="folioBook"><span>Book with <span id="folioBookName">Miles</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg></button>
-      </footer>
+      <div class="folio__body">
+        <div class="folio__text">
+          <p class="folio__bio" id="folioBio"></p>
+          <p class="label">Specialties</p>
+          <p class="folio__spec" id="folioSpec"></p>
+          <button class="cta" id="folioBook">
+            <span class="cta__label" id="folioBookLabel">Book</span>
+            <span class="cta__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" /></svg></span>
+          </button>
+        </div>
+        <div class="folio__work" id="folioWork" tabindex="0" aria-label="Portfolio photos"></div>
+      </div>
     </div>
   </dialog>
 
-  <script src="script.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
