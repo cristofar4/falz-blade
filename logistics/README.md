@@ -13,7 +13,7 @@ assets/         responsive WebP photography
 Run it by opening `index.html`, or serve the folder:
 
 ```bash
-python3 -m http.server 8080
+cd logistics && python3 -m http.server 8080
 ```
 
 ## What it does

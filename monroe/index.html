@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MONROE · Modern Grooming</title>
+  <meta name="description" content="MONROE is a modern grooming studio in Lagos. Signature tapers, texture crops and classic cuts, made with an uncommon standard." />
+  <meta name="theme-color" content="#EAE7E1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="assets/media/studio-1600.webp" imagesrcset="assets/media/studio-960.webp 960w, assets/media/studio-1600.webp 1600w, assets/media/studio-2400.webp 2400w" imagesizes="(max-width: 860px) 100vw, 84vw" />
+  <link rel="stylesheet" href="css/monroe.css" />
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="brand" href="#top" aria-label="MONROE Modern Grooming, back to top">
+        <span class="brand__mono" aria-hidden="true">M</span>
+        <span class="brand__rule" aria-hidden="true"></span>
+        <span class="brand__text">
+          <span class="brand__name">MONROE</span>
+          <span class="brand__sub">Modern Grooming</span>
+        </span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#studio" data-nav="studio">Studio</a>
+        <a href="#cuts" data-nav="cuts">The cuts</a>
+        <a href="#people" data-nav="people">Our people</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a class="cta" href="#book" data-nav="book">
+          <span class="cta__label"><span class="cta__long">Book appointment</span><span class="cta__short">Book</span></span>
+          <span class="cta__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" /></svg></span>
+        </a>
+        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+          <span aria-hidden="true"><i></i><i></i></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- mobile menu -->
+  <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+    <div class="menu__inner">
+      <ol class="menu__links">
+        <li><a href="#studio"><span>01</span>Studio</a></li>
+        <li><a href="#cuts"><span>02</span>The cuts</a></li>
+        <li><a href="#process"><span>03</span>The process</a></li>
+        <li><a href="#people"><span>04</span>Our people</a></li>
+        <li><a href="#book"><span>05</span><em>Book appointment</em></a></li>
+      </ol>
+      <div class="menu__foot">
+        <div><p class="label">Opening hours</p><ul class="hours" data-hours></ul></div>
+        <div><p class="label">Location</p><p data-location></p></div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="studio" data-section="studio" aria-labelledby="heroTitle">
+      <span id="top" class="anchor"></span>
+      <div class="hero__stage">
+        <figure class="hero__studio" id="heroStudio">
+          <img class="hero__img"
+               src="assets/media/studio-1600.webp"
+               srcset="assets/media/studio-960.webp 960w, assets/media/studio-1600.webp 1600w, assets/media/studio-2400.webp 2400w"
+               sizes="(max-width: 860px) 100vw, 84vw"
+               alt="A quiet, warmly lit barber studio with round mirrors, leather chairs and a long marble counter"
+               width="2400" height="1472" fetchpriority="high" />
+          <!-- A video is added here when MONROE.heroVideo.src is set in js/data.js -->
+          <div class="hero__shade" aria-hidden="true"></div>
+        </figure>
+
+        <div class="hero__copy">
+          <h1 id="heroTitle" class="hero__title">
+            <span class="ln"><span>An everyday ritual.</span></span>
+            <span class="ln"><span>An uncommon standard.</span></span>
+          </h1>
+          <a class="textlink textlink--light hero__link" href="#cuts">Discover your next look <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg></a>
+        </div>
+
+        <figure class="hero__portrait reveal">
+          <div class="hero__portrait-frame">
+            <img src="assets/media/portrait-800.webp"
+                 srcset="assets/media/portrait-480.webp 480w, assets/media/portrait-800.webp 800w, assets/media/portrait-1200.webp 1200w"
+                 sizes="(max-width: 860px) 42vw, 24vw"
+                 alt="Portrait of a client in profile light, with a crisp short cut and sharp line"
+                 width="1200" height="1800" />
+          </div>
+          <figcaption class="label">The signature <span aria-hidden="true">/</span> 45 min</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== CUT LIBRARY ===================== -->
+    <section class="library" id="cuts" data-section="cuts" aria-labelledby="libTitle">
+      <div class="wrap library__head">
+        <div>
+          <p class="label reveal">01 <span aria-hidden="true">/</span> The cut library</p>
+          <h2 id="libTitle" class="library__title reveal">Less ordinary.<br />More you.</h2>
+        </div>
+        <p class="library__intro reveal">A curated library of modern classics and contemporary shapes. Refined cuts that fit your look, your rhythm, your next move.</p>
+      </div>
+
+      <div class="wrap">
+        <div class="gallery reveal" id="gallery" role="group" aria-roledescription="gallery" aria-label="Haircut styles">
+          <div class="gallery__track" id="galleryTrack"><!-- rendered from data.js --></div>
+        </div>
+        <div class="gallery__nav" aria-hidden="false">
+          <p class="gallery__count"><span id="galleryIndex">01</span> / <span id="galleryTotal">03</span></p>
+          <div class="gallery__dots" id="galleryDots" role="group" aria-label="Choose a style"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROCESS ===================== -->
+    <section class="process" id="process" data-section="cuts" aria-labelledby="processTitle">
+      <div class="process__media" id="processMedia" aria-hidden="true"><!-- images rendered from data.js --></div>
+      <div class="process__shade" aria-hidden="true"></div>
+      <div class="wrap process__inner">
+        <h2 id="processTitle" class="process__title reveal">Time well spent.</h2>
+        <ol class="steps" id="steps"><!-- rendered from data.js --></ol>
+      </div>
+    </section>
+
+    <!-- ===================== PEOPLE ===================== -->
+    <section class="people" id="people" data-section="people" aria-labelledby="peopleTitle">
+      <div class="wrap people__head">
+        <div>
+          <p class="label reveal">02 <span aria-hidden="true">/</span> Our people</p>
+          <h2 id="peopleTitle" class="people__title reveal">Steady hands,<br /><em>quiet confidence.</em></h2>
+        </div>
+        <p class="people__intro reveal">Two barbers, one standard. Every appointment is cut start to finish by the same person.</p>
+      </div>
+      <div class="wrap">
+        <figure class="people__photo reveal" id="teamPhoto"></figure>
+        <ul class="roster" id="roster"><!-- rendered from data.js --></ul>
+      </div>
+    </section>
+
+    <!-- ===================== BOOKING ===================== -->
+    <section class="book" id="book" data-section="book" aria-labelledby="bookTitle">
+      <div class="wrap book__grid">
+        <div class="book__head">
+          <p class="label reveal">03 <span aria-hidden="true">/</span> Reserve</p>
+          <h2 id="bookTitle" class="book__title reveal">Your next chapter,<br />in the chair.</h2>
+          <p class="book__note reveal">Times follow our opening hours. The studio confirms every request personally.</p>
+        </div>
+
+        <div class="book__panel">
+          <form class="bform" id="bookForm" novalidate>
+            <div class="bform__row">
+              <div class="field" data-field="service">
+                <label for="fService" class="label">Service</label>
+                <div class="select"><select id="fService" name="service" required><option value="">Choose a service</option></select></div>
+                <p class="field__err" id="eService"></p>
+              </div>
+              <div class="field" data-field="barber">
+                <label for="fBarber" class="label">Barber</label>
+                <div class="select"><select id="fBarber" name="barber" required><option value="">Choose a barber</option><option value="any">Any barber</option></select></div>
+                <p class="field__err" id="eBarber"></p>
+              </div>
+              <div class="field" data-field="date">
+                <label for="fDate" class="label">Day</label>
+                <input type="date" id="fDate" name="date" required class="input" />
+                <p class="field__err" id="eDate"></p>
+              </div>
+              <div class="field" data-field="time">
+                <label for="fTime" class="label">Time</label>
+                <div class="select"><select id="fTime" name="time" required disabled><option value="">Select a day first</option></select></div>
+                <p class="field__err" id="eTime"></p>
+              </div>
+            </div>
+            <div class="bform__row bform__row--two">
+              <div class="field" data-field="name">
+                <label for="fName" class="label">Your name</label>
+                <input type="text" id="fName" name="name" autocomplete="name" required class="input" />
+                <p class="field__err" id="eName"></p>
+              </div>
+              <div class="field" data-field="phone">
+                <label for="fPhone" class="label">Phone</label>
+                <input type="tel" id="fPhone" name="phone" autocomplete="tel" inputmode="tel" required class="input" />
+                <p class="field__err" id="ePhone"></p>
+              </div>
+            </div>
+
+            <div class="bform__foot">
+              <dl class="tally" aria-live="polite">
+                <div><dt class="label">Duration</dt><dd id="tDuration">0 min</dd></div>
+                <div><dt class="label">Total</dt><dd id="tTotal">₦0</dd></div>
+              </dl>
+              <button type="submit" class="cta cta--lg">
+                <span class="cta__label">Reserve your visit</span>
+                <span class="cta__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" /></svg></span>
+              </button>
+            </div>
+            <p class="bform__status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="confirm" id="confirm" hidden tabindex="-1" aria-labelledby="confirmTitle">
+            <p class="confirm__flag label">Demo confirmation</p>
+            <h3 id="confirmTitle" class="confirm__title">Thank you, <em id="cName"></em>.</h3>
+            <p class="confirm__warn"><strong>No appointment has been submitted.</strong> This website is not connected to a booking system yet, so nothing was sent to the studio. Below is what would be requested.</p>
+            <dl class="confirm__list" id="cList"></dl>
+            <button type="button" class="textlink" id="restart">Start a new request</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <a class="brand brand--light" href="#top" aria-label="MONROE Modern Grooming, back to top">
+        <span class="brand__mono" aria-hidden="true">M</span>
+        <span class="brand__rule" aria-hidden="true"></span>
+        <span class="brand__text"><span class="brand__name">MONROE</span><span class="brand__sub">Modern Grooming</span></span>
+      </a>
+      <span class="footer__line" aria-hidden="true"></span>
+      <div class="footer__col">
+        <p class="label">Opening hours</p>
+        <ul class="hours" data-hours></ul>
+      </div>
+      <div class="footer__col">
+        <p class="label">Location</p>
+        <p data-location></p>
+        <p data-contact></p>
+      </div>
+      <ul class="footer__social" id="social" aria-label="Social media"></ul>
+    </div>
+    <div class="wrap footer__base">
+      <p>© <span id="year"></span> MONROE Modern Grooming</p>
+      <a href="#top" class="textlink textlink--light">Back to top</a>
+    </div>
+  </footer>
+
+  <!-- ===================== PORTFOLIO OVERLAY ===================== -->
+  <dialog class="folio" id="folio" aria-labelledby="folioName">
+    <div class="folio__inner">
+      <header class="folio__head">
+        <div>
+          <p class="label" id="folioRole"></p>
+          <h2 class="folio__name" id="folioName"></h2>
+        </div>
+        <button class="folio__close" id="folioClose" aria-label="Close portfolio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg></button>
+      </header>
+      <div class="folio__body">
+        <div class="folio__text">
+          <p class="folio__bio" id="folioBio"></p>
+          <p class="label">Specialties</p>
+          <p class="folio__spec" id="folioSpec"></p>
+          <button class="cta" id="folioBook">
+            <span class="cta__label" id="folioBookLabel">Book</span>
+            <span class="cta__arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" /></svg></span>
+          </button>
+        </div>
+        <div class="folio__work" id="folioWork" tabindex="0" aria-label="Portfolio photos"></div>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
